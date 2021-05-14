@@ -6,6 +6,7 @@ import VideoHero from "../images/homepage/hero-video.jpg";
 import PlanetImage from "../images/homepage/planet.svg";
 
 const Container = styled.div`
+  padding: 5rem 0 0 0;
   p {
     text-align: center;
     padding: 0.75rem 0 1.5rem 0;

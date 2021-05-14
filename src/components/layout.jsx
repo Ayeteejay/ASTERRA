@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 const theme = {
 
@@ -13,14 +14,34 @@ primaryColors: {
 
 // Secondary Colors
 secondaryColors:{
-orange: "#ff4d1d",
-lime: "#13cca8",
-slate: "#282828",
-pavement: "#e5e5e5",
+    orange: "#ff4d1d",
+    lime: "#13cca8",
+    slate: "#282828",
+    pavement: "#e5e5e5",
+},
+
+// Animation Transisitions
+animationSpeeds:{
+    slow:"1s",
+    normal:"500ms",
+    fast: "250ms",
+},
+
+// Breakpoints
+breakPoints:{
+    xs: "450px",
+    sm: "576px",
+    md: "768px",
+    lg: "992px",
+    xl: "1200px",
+    xxl: "1400px",
 },
 
 // Font Family
-fontFamily: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap'), sans-serif",
+fontFamily:{
+    font: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap'), sans-serif",
+}
+
 };
 
 const Container = styled.div`
@@ -62,6 +83,7 @@ const Layout = ({children}) => {
             <Container>
             <Header></Header>
                 {children}
+                <Footer></Footer>
             </Container>
         </ThemeProvider>
     )
