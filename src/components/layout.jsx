@@ -1,7 +1,10 @@
 import React from 'react';
+import "../styles/global.css";
 import styled, {ThemeProvider} from 'styled-components';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import Fade from 'react-reveal'
+
 
 const theme = {
 
@@ -19,6 +22,7 @@ secondaryColors:{
     slate: "#282828",
     pavement: "#e5e5e5",
 },
+
 
 // Animation Transisitions
 animationSpeeds:{
@@ -79,12 +83,15 @@ button{
 
 const Layout = ({children}) => {
     return (
+        
         <ThemeProvider theme={theme}>
+            <Fade>
             <Container>
             <Header></Header>
                 {children}
                 <Footer></Footer>
             </Container>
+            </Fade>
         </ThemeProvider>
     )
 };

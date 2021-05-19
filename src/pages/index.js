@@ -1,9 +1,20 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
 import Layout from "../components/layout";
-import "../styles/global.css";
 import VideoHero from "../images/homepage/hero-video.jpg";
 import PlanetImage from "../images/homepage/planet.svg";
+
+const gradientAnimation = keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+`;
 
 const Container = styled.div`
   padding: 5rem 0 0 0;
@@ -64,6 +75,8 @@ const ProductRow = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
+  background-size: 400%;
+  animation: ${gradientAnimation} 15s infinite;
   background-image: linear-gradient(
     45deg,
     ${(props) => props.theme.primaryColors.oceanBlue},
@@ -96,7 +109,6 @@ const Index = () => {
           <PlanetSmall src={PlanetImage}></PlanetSmall>
           <PlanetLarge src={PlanetImage}></PlanetLarge>
           <Video src={VideoHero}></Video>
-
           <h3>
             Patented Radar Technology for Pipe Assessment. Leak Detection.
             Property Assessment.

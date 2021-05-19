@@ -5,13 +5,14 @@ import {Link} from 'gatsby';
 
 const Container = styled.div`
 position: fixed;
-// background:${props=>props.theme.primaryColors.spaceBlack};
+background:${props=>props.theme.primaryColors.spaceBlack};
 top: 0;
 width: 100%;
 display:flex;
 padding:2rem;
 justify-content:space-between;
 align-items:center;
+border-bottom:1px solid ${props=>props.theme.primaryColors.clearWhite};
 a{
     font-size:0.8125rem;
     text-decoration:none;
@@ -93,7 +94,7 @@ display:block;
 const Header = () =>{
     return (
         <Container>
-            <img src={BlueLogo} alt="ASTERRA"/>
+        <Link to="/"><img src={BlueLogo} alt="ASTERRA"/></Link>
           <LinkColumn>
           <ul>
               <li><Link to="/products">Products</Link></li>
