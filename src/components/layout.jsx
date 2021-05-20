@@ -23,7 +23,6 @@ secondaryColors:{
     pavement: "#e5e5e5",
 },
 
-
 // Animation Transisitions
 animationSpeeds:{
     slow:"1s",
@@ -44,8 +43,12 @@ breakPoints:{
 // Font Family
 fontFamily:{
     font: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap'), sans-serif",
-}
+},
 
+// Section Spacing
+sectionSpacing: {
+    standard: "5rem 0",
+}
 };
 
 const Container = styled.div`
@@ -59,24 +62,49 @@ span{
     -webkit-text-fill-color: transparent;
 }
 h1{
+    font-size:5.9375rem;
+    line-height:1.1;
+    padding:0 0 1.5rem 0;
+}
+h2{
     font-size:3.375rem;
+}
+h4{
+    font-size:1.25rem;
 }
 p{
     line-height:1.7;
     font-size:0.95rem;
+    font-weight:200;
 }
-button{
+.cta-btn{
     background: ${props=>props.theme.secondaryColors.orange};
     border:none;
     color:white;
     text-transform:uppercase;
-    letter-spacing:0.75px;
+    letter-spacing:0.5px;
     transition:800ms;
     padding:1rem 1.5rem;
     border-radius:5rem;
     cursor:pointer;
     &:hover{
         background:blue;
+    }
+}
+.cta-btn-ghost{
+    background:none;
+    border:1px solid ${props=>props.theme.primaryColors.clearWhite};
+    color:white;
+    font-size:0.95rem;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    transition:800ms;
+    padding:1rem 1.5rem;
+    border-radius:5rem;
+    cursor:pointer;
+    &:hover{
+        background:${props=>props.theme.secondaryColors.orange};
+        border:1px solid ${props=>props.theme.secondaryColors.orange};
     }
 }
 `;

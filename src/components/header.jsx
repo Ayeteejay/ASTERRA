@@ -5,6 +5,7 @@ import {Link} from 'gatsby';
 
 const Container = styled.div`
 position: fixed;
+z-index:9999;
 background:${props=>props.theme.primaryColors.spaceBlack};
 top: 0;
 width: 100%;
