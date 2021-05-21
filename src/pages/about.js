@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Fade from "react-reveal";
 import styled, { keyframes } from "styled-components";
 import Layout from "../components/layout";
+import Data from "../data/leadership.js";
+import LeadershipCard from "../components/leadership-card";
 import HeroBackground from "../images/about-us/vector-background.svg";
 import Ether from "../images/about-us/blockchain.svg";
 import StarTrek from "../images/about-us/star-trek.jpg";
@@ -146,9 +148,16 @@ const LeadershipSection = styled.div`
 `;
 const LeadershipRow = styled.div`
   width: 75%;
+  .leadership-intro {
+  }
+  .leadership-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const About = () => {
+  const [leadershipData, setLeadershipData] = useState(Data);
   return (
     <Layout>
       <HeroContainer>
@@ -255,7 +264,19 @@ const About = () => {
       <Fade>
         <LeadershipSection>
           <LeadershipRow>
-            <h2>Our Leadership</h2>
+            <div className="leadership-intro">
+              <h2>Our Leadership</h2>
+            </div>
+            <div className="leadership-cards">
+              {leadershipData.map((value) => {
+                return (
+                  <LeadershipCard
+                    key={value.id}
+                    profile={value}
+                  ></LeadershipCard>
+                );
+              })}
+            </div>
           </LeadershipRow>
         </LeadershipSection>
       </Fade>

@@ -17,10 +17,11 @@ const LinkRow = styled.div`
 width:100%;
 border-bottom:1px solid ${props=>props.theme.primaryColors.clearWhite};
 padding:1rem 0;
-display:grid;
-grid-template-columns: 1fr;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
 @media (min-width:${props=>props.theme.breakPoints.lg}){
-    grid-template-columns:1fr 1fr
+    flex-wrap:nowrap;
 }
 `
 
@@ -54,6 +55,8 @@ li:first-child{
 const LinkColumn = styled.div`
 display:flex;
 padding:3rem 0;
+flex-wrap:wrap;
+justify-content:space-between;
 ul{
     list-style:none;
     padding:0 3rem 0 0;
@@ -67,6 +70,7 @@ li:first-child{
 }
 @media(min-width:${props=>props.theme.breakPoints.lg}){
 padding:1rem 0;
+flex-wrap:nowrap;
 }
 `
 
@@ -85,6 +89,9 @@ align-items:center;
     > * {
         padding:1rem;
     }
+}
+p{
+    0.8125rem;
 }
 @media(min-width:${props=>props.theme.breakPoints.lg}){
     flex-flow:row;
@@ -164,6 +171,51 @@ const Footer = () => {
                       <Link to="/solutions/resistivity" className="standard-link">Resistivity</Link>
                   </li>
                   </ul> 
+                        <ul>
+                        <li>Partners</li>
+                        <li>
+                            <Link to="/partners/resellers" className="standard-link">Resellers</Link>
+                        </li>
+                        <li>
+                            <Link to="/partners/partner-program" className="standard-link">Partner Program</Link>
+                        </li>
+                        <li>
+                            <Link to="/partners/leak-detection-teams" className="standard-link">Leak Detection Teams</Link>
+                        </li>
+                        </ul> 
+                            <ul>
+                            <li>Resources</li>
+                            <li>
+                                <Link to="/resources/press" className="standard-link">Press</Link>
+                            </li>
+                            <li>
+                                <Link to="/resources/blog" className="standard-link">Blog</Link>
+                            </li>
+                            <li>
+                                <Link to="/resources/events" className="standard-link">Events</Link>
+                            </li>
+                            <li>
+                                <Link to="/resources/case-studies" className="standard-link">Case Studies</Link>
+                            </li>
+                            </ul> 
+                                <ul>
+                                <li>About</li>
+                                <li>
+                                    <Link to="/about/contact-us" className="standard-link">Contact Us</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/careers" className="standard-link">Careers</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/awards" className="standard-link">Awards</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/leadership" className="standard-link">Leadership</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/impact" className="standard-link">Impact</Link>
+                                </li>
+                                </ul> 
              </LinkColumn>
             </LinkRow>
             <LegalRow>
