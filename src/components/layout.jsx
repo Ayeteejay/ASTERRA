@@ -21,6 +21,7 @@ secondaryColors:{
     lime: "#13cca8",
     slate: "#282828",
     pavement: "#e5e5e5",
+    granite: "#282828",
 },
 
 // Animation Transisitions
