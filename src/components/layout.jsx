@@ -78,6 +78,14 @@ p{
     font-size:0.95rem;
     font-weight:200;
 }
+.standard-link{
+    color:${props=>props.theme.primaryColors.clearWhite};
+    letter-spacing:1px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    &:hover{
+        color:${props=>props.theme.secondaryColors.orange};
+    }  
+}
 .cta-btn{
     background: ${props=>props.theme.secondaryColors.orange};
     border:none;

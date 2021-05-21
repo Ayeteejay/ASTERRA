@@ -18,13 +18,16 @@ width:100%;
 border-bottom:1px solid ${props=>props.theme.primaryColors.clearWhite};
 padding:1rem 0;
 display:grid;
-grid-template-columns: 1fr 2fr;
+grid-template-columns: 1fr;
+@media (min-width:${props=>props.theme.breakPoints.lg}){
+    grid-template-columns:1fr 1fr
+}
 `
 
 const AddressColumn = styled.div`
 display:grid;
-grid-template-columns:repeat(3, 1fr);
-grid-gap:4rem;
+grid-template-columns:repeat(2, 1fr);
+grid-gap:2rem;
 a{
     color:${props=>props.theme.secondaryColors.orange};
     transition: ${props=>props.theme.animationSpeeds.fast};
@@ -43,18 +46,27 @@ li:first-child{
     color:${props=>props.theme.primaryColors.oceanBlue};
     font-weight:bold;
 }
+@media(min-width:${props=>props.theme.breakPoints.lg}){
+    grid-template-columns: repeat(3, 1fr);
+}
 `
 
 const LinkColumn = styled.div`
+display:flex;
+padding:3rem 0;
 ul{
     list-style:none;
+    padding:0 3rem 0 0;
 }
 li{
 font-size:0.8125rem;
-line-height:1.6;
+line-height:2;
 }
 li:first-child{
     font-weight:bold;
+}
+@media(min-width:${props=>props.theme.breakPoints.lg}){
+padding:1rem 0;
 }
 `
 
@@ -63,13 +75,27 @@ const LegalRow = styled.div`
 display:flex;
 justify-content:space-between;
 padding:1rem 0;
+flex-flow:column;
+align-items:center;
+.legal-column{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-align:center;
+    > * {
+        padding:1rem;
+    }
+}
+@media(min-width:${props=>props.theme.breakPoints.lg}){
+    flex-flow:row;
+    .legal-column{
+        > * {
+            padding:1rem 2rem;
+        }
+    }
+}
 `
 
-const LegalColumn = styled.div`
-display:flex;
-justify-content:space-around;
-align-items:center;
-`
 
 const Footer = () => {
     return (
@@ -105,26 +131,48 @@ const Footer = () => {
               <ul>
                   <li>Products</li>
                   <li>
-                      <Link to="/products/masterplan">MasterPlan</Link>
+                      <Link to="/products/masterplan" className="standard-link">MasterPlan</Link>
                   </li>
                   <li>
-                      <Link to="/products/recover">Recover</Link>
+                      <Link to="/products/recover" className="standard-link">Recover</Link>
                   </li>
                   <li>
-                      <Link to="/products/earthworks">EarthWorks</Link>
+                      <Link to="/products/earthworks" className="standard-link">EarthWorks</Link>
+                  </li>
+                  </ul> 
+              <ul>
+                  <li>Solutions</li>
+                  <li>
+                      <Link to="/solutions/water" className="standard-link">Water</Link>
+                  </li>
+                  <li>
+                      <Link to="/solutions/wastewater" className="standard-link">Wastewater</Link>
+                  </li>
+                  <li>
+                      <Link to="/solutions/reclaimed" className="standard-link">Reclaimed</Link>
+                  </li>
+                  <li>
+                      <Link to="/solutions/road-highway" className="standard-link">Road &#38; Highway</Link>
+                  </li>
+                  <li>
+                      <Link to="/solutions/rail" className="standard-link">Rail</Link>
+                  </li>
+                  <li>
+                      <Link to="/solutions/dam-levee" className="standard-link">Dam &#38; Levee</Link>
+                  </li>
+                  <li>
+                      <Link to="/solutions/resistivity" className="standard-link">Resistivity</Link>
                   </li>
                   </ul> 
              </LinkColumn>
             </LinkRow>
             <LegalRow>
                 <img src={BlueLogo} alt="ASTERRA logo"/>
-                <LegalRow>
+                <div className="legal-column">
                     <p>2021 Utilis Corp. All rights reserved.</p>
-                    <LegalColumn>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
-                    <Link to="/terms-of-use">Terms of Use</Link>
-                    </LegalColumn>
-                </LegalRow>
+                    <Link to="/privacy-policy" className="standard-link">Privacy Policy</Link>
+                    <Link to="/terms-of-use"  className="standard-link">Terms of Use</Link>
+                </div>
             </LegalRow>
         </Container>
     )

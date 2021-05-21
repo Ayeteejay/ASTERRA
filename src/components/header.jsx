@@ -23,14 +23,7 @@ a{
 
 const LinkColumn = styled.div`
 display:none;
-a{
-    color:${props=>props.theme.primaryColors.clearWhite};
-    letter-spacing:1px;
-    transition:${props=>props.theme.animationSpeeds.normal};
-    &:hover{
-        color:${props=>props.theme.secondaryColors.orange};
-    }
-}
+
 ul{
     list-style:none;
     display:flex;
@@ -98,11 +91,11 @@ const Header = () =>{
         <Link to="/"><img src={BlueLogo} alt="ASTERRA"/></Link>
           <LinkColumn>
           <ul>
-              <li><Link to="/products">Products</Link></li>
-              <li><Link to="/solutions">Solutions</Link></li>
-              <li><Link to="/partners">Partners</Link></li>
-              <li><Link to="/resources">Resources</Link></li>
-              <li><Link to="/about">About</Link></li>
+              <li><Link to="/products" className="standard-link">Products</Link></li>
+              <li><Link to="/solutions" className="standard-link">Solutions</Link></li>
+              <li><Link to="/partners" className="standard-link">Partners</Link></li>
+              <li><Link to="/resources" className="standard-link">Resources</Link></li>
+              <li><Link to="/about" className="standard-link">About</Link></li>
           </ul>
           </LinkColumn>
           <CallToActionColumn>
