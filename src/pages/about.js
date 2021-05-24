@@ -3,6 +3,7 @@ import Fade from "react-reveal";
 import styled, { keyframes } from "styled-components";
 import Layout from "../components/layout";
 import Data from "../data/leadership.js";
+import AwardData from "../data/awards.js";
 import LeadershipCard from "../components/leadership-card";
 import HeroBackground from "../images/about-us/vector-background.svg";
 import Ether from "../images/about-us/blockchain.svg";
@@ -11,6 +12,17 @@ import Mars from "../images/about-us/total-recall.jpg";
 import Radar from "../images/about-us/radar.jpg";
 import Planet from "../images/homepage/planet.svg";
 import LeadershipIcon from "../images/about-us/leadership-icon.svg";
+import SanDiego from "../images/about-us/san-diego.jpg";
+import Arrow from "../images/arrow-right.svg";
+
+const rotation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
 
 const HeroContainer = styled.div`
   background-image: url(${HeroBackground});
@@ -20,15 +32,6 @@ const HeroContainer = styled.div`
   justify-content: center;
   flex-flow: column;
   align-items: center;
-`;
-
-const rotation = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 `;
 
 const HeroRow = styled.div`
@@ -112,7 +115,7 @@ const HistoryRow = styled.div`
 
 const LeadershipIntro = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   .gradient-column {
     height: 50%;
     background-image: linear-gradient(
@@ -122,7 +125,7 @@ const LeadershipIntro = styled.div`
     );
   }
   .leadership-icon {
-    animation: ${rotation} 25s infinite;
+    // animation: ${rotation} 25s infinite;
   }
   .leadership-column {
     background: ${(props) => props.theme.secondaryColors.granite};
@@ -149,15 +152,126 @@ const LeadershipSection = styled.div`
 const LeadershipRow = styled.div`
   width: 75%;
   .leadership-intro {
+    padding: 10rem 0 1.5rem 0;
+    margin: 0 0 3rem 0;
+    border-bottom: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
   }
   .leadership-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem 2rem;
+  }
+  @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+    .leadership-cards {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem 2rem;
+    }
+  }
+`;
+
+const AwardsIntroSection = styled.div`
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  padding: ${(props) => props.theme.sectionSpacing.topOnly};
+  .awards-column {
+    border-top: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
+    border-bottom: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
+    border-right: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
+    padding: 0 0 0 25%;
+    display: flex;
+    .awards-description {
+      padding: 5rem 5rem 5rem 0;
+      h2 {
+        color: ${(props) => props.theme.primaryColors.oceanBlue};
+        padding: 0 0 2rem 0;
+      }
+    }
+    .awards-image {
+      background-image: url(${SanDiego});
+      background-size: cover;
+      width: 100%;
+      display: none;
+      @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+        display: block;
+      }
+    }
+  }
+`;
+
+const AwardsSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  padding: 5rem 0 10rem 0;
+  .award-row {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.8rem 2rem;
+    transition: ${(props) => props.theme.animationSpeeds.normal};
+    p {
+      padding: 5px 25px 0 0;
+      color: ${(props) => props.theme.secondaryColors.stone};
+      transition: ${(props) => props.theme.animationSpeeds.normal};
+    }
+    &:hover {
+      background: ${(props) => props.theme.primaryColors.oceanBlue};
+      p {
+        color: ${(props) => props.theme.primaryColors.clearWhite};
+      }
+    }
+  }
+  .award-title {
+    display: flex;
+  }
+
+  img {
+    align-self: center;
+  }
+  a {
+    font-size: 3.375rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+`;
+
+const ImpactSection = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  padding: ${(props) => props.theme.sectionSpacing.standard};
+  background: ${(props) => props.theme.primaryColors.oceanBlue};
+  .impact-row {
+    width: 75%;
+  }
+  .impact-title {
+    margin: 0 0 3rem 0;
+    border-bottom: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
+    h2 {
+      padding: 0 0 2rem 0;
+    }
+  }
+  .impact-description {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+
+    .title {
+      font-size: ${(props) => props.theme.fontSize.xl.size};
+      line-height: ${(props) => props.theme.fontSize.xl.lineHeight};
+      font-weight: bold;
+    }
+    .description {
+      padding: 2rem 0 0 0;
+    }
   }
 `;
 
 const About = () => {
   const [leadershipData, setLeadershipData] = useState(Data);
+  const [awardsData, setAwardsData] = useState(AwardData);
   return (
     <Layout>
       <HeroContainer>
@@ -268,17 +382,101 @@ const About = () => {
               <h2>Our Leadership</h2>
             </div>
             <div className="leadership-cards">
-              {leadershipData.map((value) => {
-                return (
-                  <LeadershipCard
-                    key={value.id}
-                    profile={value}
-                  ></LeadershipCard>
-                );
+              {leadershipData.map((value, index) => {
+                if (index < 5) {
+                  return (
+                    <LeadershipCard
+                      key={value.id}
+                      profile={value}
+                    ></LeadershipCard>
+                  );
+                }
+              })}
+            </div>
+          </LeadershipRow>
+          <LeadershipRow>
+            <div className="leadership-intro">
+              <h2>Our Advisors</h2>
+            </div>
+            <div className="leadership-cards">
+              {leadershipData.map((value, index) => {
+                if (index >= 5) {
+                  return (
+                    <LeadershipCard
+                      key={value.id}
+                      profile={value}
+                    ></LeadershipCard>
+                  );
+                }
               })}
             </div>
           </LeadershipRow>
         </LeadershipSection>
+      </Fade>
+      <Fade>
+        <AwardsIntroSection>
+          <div className="awards-column">
+            <div className="awards-description">
+              <h2>Our Awards</h2>
+              <p>
+                <strong>Multiple honors in a few short years</strong>
+                <br></br>
+                In 2017, co-founder Lauren Guy and CEO Elly Perets traveled to
+                Imagine H2O Week in San Diego, where they were presented with
+                the very first Imagine H2O Data Challenge award for solutions
+                that drive smarter water resource management. In the few years
+                since then, we have earned more than a dozen additional awards
+                and citations around the world for technical innovation and
+                impact.
+              </p>
+            </div>
+            <div className="awards-image"></div>
+          </div>
+          <div></div>
+        </AwardsIntroSection>
+      </Fade>
+      <Fade>
+        <AwardsSection>
+          {awardsData.map((value) => {
+            return (
+              <div className="award-row" key={value.id}>
+                <div className="award-title">
+                  <p>{value.year}</p>
+                  <a href={value.link}>{value.name}</a>
+                </div>
+                <img src={Arrow} />
+              </div>
+            );
+          })}
+        </AwardsSection>
+      </Fade>
+      <Fade>
+        <ImpactSection>
+          <div className="impact-row">
+            <div className="impact-title">
+              <h2>Our Impact</h2>
+            </div>
+            <div className="impact-description">
+              <div>
+                <p className="title">
+                  <span className="emphasize">Seven billion</span> gallons of
+                  water a year is just the beginning
+                </p>
+                <p className="description">
+                  Since 2016, hundreds of projects have been completed
+                  worldwide, in the United States, Italy, the UK, Chile, China,
+                  South Africa, and elsewhere. Some 20,000 leaks have been
+                  verified, saving customers 7,000 million gallons of drinkable
+                  water, 17,000 MWH hours a year, and the associated
+                  environmental and financial costs. It’s one of the ways we
+                  support the United Nations Sustainable Development Goals
+                  (SDG). As ASTERRA’s capabilities grow, so will our impact on
+                  resource resilience, the environment, economics, and safety.
+                </p>
+              </div>
+            </div>
+          </div>
+        </ImpactSection>
       </Fade>
     </Layout>
   );

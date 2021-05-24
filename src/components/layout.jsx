@@ -22,6 +22,7 @@ secondaryColors:{
     slate: "#282828",
     pavement: "#e5e5e5",
     granite: "#282828",
+    stone:"#696969",
 },
 
 // Animation Transisitions
@@ -46,9 +47,18 @@ fontFamily:{
     font: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap'), sans-serif",
 },
 
+fontSize:{
+    xl: {
+        size:"5.9375rem",
+        lineHeight:"1.3",
+    },
+},
+
 // Section Spacing
 sectionSpacing: {
-    standard: "5rem 0",
+    standard: "10rem 0",
+    bottomOnly:"0 0 10rem 0",
+    topOnly: "10rem 0 0 0",
 }
 };
 
@@ -57,7 +67,7 @@ font-family:'Inter';
 display:flex;
 flex-flow:column;
 color:white;
-span{
+span.gradient{
     background: -webkit-linear-gradient(45deg, ${props=>props.theme.primaryColors.oceanBlue},${props=>props.theme.secondaryColors.orange});
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -115,6 +125,9 @@ p{
         background:${props=>props.theme.secondaryColors.orange};
         border:1px solid ${props=>props.theme.secondaryColors.orange};
     }
+}
+span.emphasize{
+    color:${props=>props.theme.primaryColors.spaceBlack};
 }
 `;
 

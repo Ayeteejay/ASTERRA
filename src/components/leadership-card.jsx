@@ -6,6 +6,17 @@ const Card = styled.div`
 .profile-row{
 
 }
+
+img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: ${(props) => props.theme.animationSpeeds.normal};
+    &:hover{
+        transform: translate(-10px, -20px);
+        filter: grayscale(0%);
+        box-shadow: 15px 15px ${(props) => props.theme.primaryColors.oceanBlue};
+      }
+  }
 .title-row{
  .name{
      font-size:1.2rem;

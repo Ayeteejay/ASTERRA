@@ -136,7 +136,7 @@ const Index = () => {
       <Container>
         <HeroSection>
           <h1>
-            An entire city at <span>once.</span>
+            An entire city at <span className="gradient">once.</span>
           </h1>
           <p>
             <strong>
