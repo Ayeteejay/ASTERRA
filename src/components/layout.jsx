@@ -50,8 +50,12 @@ fontFamily:{
 fontSize:{
     xl: {
         size:"5.9375rem",
-        lineHeight:"1.3",
+        lineHeight:"1.2",
     },
+    lg:{
+        size:"3.375rem",
+        lineHeight:"1.1",
+    }
 },
 
 // Section Spacing

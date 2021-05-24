@@ -6,6 +6,7 @@ import Data from "../data/leadership.js";
 import AwardData from "../data/awards.js";
 import LeadershipCard from "../components/leadership-card";
 import HeroBackground from "../images/about-us/vector-background.svg";
+import LeadershipBackground from "../images/about-us/orange-glow.svg";
 import Ether from "../images/about-us/blockchain.svg";
 import StarTrek from "../images/about-us/star-trek.jpg";
 import Mars from "../images/about-us/total-recall.jpg";
@@ -14,6 +15,7 @@ import Planet from "../images/homepage/planet.svg";
 import LeadershipIcon from "../images/about-us/leadership-icon.svg";
 import SanDiego from "../images/about-us/san-diego.jpg";
 import Arrow from "../images/arrow-right.svg";
+import ImpactBackground from "../images/about-us/impact-water.jpg";
 
 const rotation = keyframes`
   0% {
@@ -22,6 +24,18 @@ const rotation = keyframes`
   100% {
     transform: rotate(360deg);
   }
+`;
+
+const glow = keyframes`
+0% {
+  background-position: 0% 0%;
+}
+50% {
+  background-position: 15% 0%;
+}
+100% {
+  background-position: 0% 0%;
+}
 `;
 
 const HeroContainer = styled.div`
@@ -148,6 +162,10 @@ const LeadershipSection = styled.div`
   justify-content: center;
   flex-flow: column;
   align-items: center;
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-image: url(${LeadershipBackground});
+  animation: ${glow} 5s infinite;
 `;
 const LeadershipRow = styled.div`
   width: 75%;
@@ -208,7 +226,7 @@ const AwardsSection = styled.div`
     width: 75%;
     display: flex;
     justify-content: space-between;
-    padding: 1.8rem 2rem;
+    padding: 2.5rem 2rem;
     transition: ${(props) => props.theme.animationSpeeds.normal};
     p {
       padding: 5px 25px 0 0;
@@ -230,10 +248,15 @@ const AwardsSection = styled.div`
     align-self: center;
   }
   a {
-    font-size: 3.375rem;
+    font-size: 2rem;
     color: white;
     font-weight: bold;
     text-decoration: none;
+  }
+  @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+    a {
+      font-size: ${(props) => props.theme.fontSize.lg.size};
+    }
   }
 `;
 
@@ -256,15 +279,27 @@ const ImpactSection = styled.div`
   }
   .impact-description {
     display: grid;
-    grid-template-columns: 6fr 1fr;
-
+    grid-template-columns: 1fr;
     .title {
-      font-size: ${(props) => props.theme.fontSize.xl.size};
-      line-height: ${(props) => props.theme.fontSize.xl.lineHeight};
+      font-size: ${(props) => props.theme.fontSize.lg.size};
+      line-height: ${(props) => props.theme.fontSize.lg.lineHeight};
       font-weight: bold;
     }
     .description {
       padding: 2rem 0 0 0;
+    }
+  }
+  @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(${ImpactBackground});
+    background-position: 0% -100%;
+    .impact-description {
+      grid-template-columns: 5fr 1fr;
+      .title {
+        font-size: ${(props) => props.theme.fontSize.xl.size};
+        line-height: ${(props) => props.theme.fontSize.xl.lineHeight};
+      }
     }
   }
 `;
