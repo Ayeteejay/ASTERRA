@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
-import { Link } from "gatsby";
 import Layout from "../components/layout";
-import ProductData from "../data/product.js";
 import { Helmet } from "react-helmet";
 import LeadershipBackground from "../images/about-us/orange-glow.svg";
 
@@ -249,7 +247,6 @@ const StandardCardFour = styled.div`
 `;
 
 const Index = () => {
-  const [productData, setProductData] = useState(ProductData);
   return (
     <Layout>
       <Helmet>
