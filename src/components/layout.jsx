@@ -84,6 +84,9 @@ h1{
 h2{
     font-size:3.375rem;
 }
+h3{
+    font-size:1.875rem;
+}
 h4{
     font-size:1.25rem;
 }
