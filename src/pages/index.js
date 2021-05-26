@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 import ProductData from "../data/product.js";
+import { Helmet } from "react-helmet";
 import LeadershipBackground from "../images/about-us/orange-glow.svg";
 
 // Keyframes
@@ -251,6 +252,10 @@ const Index = () => {
   const [productData, setProductData] = useState(ProductData);
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>ASTERRA</title>
+      </Helmet>
       <ProductSection>
         <ProductRow>
           <IntroBlock>
