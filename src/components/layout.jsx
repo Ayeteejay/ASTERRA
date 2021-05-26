@@ -141,9 +141,9 @@ const Layout = ({children}) => {
         <ThemeProvider theme={theme}>
             <Fade>
             <Container>
-            <Header></Header>
+            {/* <Header></Header> */}
                 {children}
-                <Footer></Footer>
+                {/* <Footer></Footer> */}
             </Container>
             </Fade>
         </ThemeProvider>
