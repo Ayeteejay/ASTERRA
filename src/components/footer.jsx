@@ -16,12 +16,13 @@ p, a{
 const LinkRow = styled.div`
 width:100%;
 border-bottom:1px solid ${props=>props.theme.primaryColors.clearWhite};
-padding:1rem 0;
+padding:2rem 0 3rem 0;
 display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
 @media (min-width:${props=>props.theme.breakPoints.lg}){
     flex-wrap:nowrap;
+    padding:1rem 0 2rem 0;
 }
 `
 
@@ -53,13 +54,11 @@ li:first-child{
 `
 
 const LinkColumn = styled.div`
-display:flex;
-padding:3rem 0;
-flex-wrap:wrap;
-justify-content:space-between;
+display:grid;
+grid-template-columns:repeat(3, 1fr);
 ul{
     list-style:none;
-    padding:0 3rem 0 0;
+    padding:2rem 2rem 0 0;
 }
 li{
 font-size:0.8125rem;
@@ -68,9 +67,18 @@ line-height:2;
 li:first-child{
     font-weight:bold;
 }
-@media(min-width:${props=>props.theme.breakPoints.lg}){
-padding:1rem 0;
-flex-wrap:nowrap;
+@media(min-width:${props=>props.theme.breakPoints.md}){
+    ul{
+        padding:0rem 2rem 2rem 0;
+    }
+    
+}
+@media(min-width:${props=>props.theme.breakPoints.xl}){
+    grid-template-columns:repeat(5, 1fr);
+    ul{
+        padding:0 1rem 0 0;
+    }
+    
 }
 `
 
@@ -219,7 +227,8 @@ const Footer = () => {
              </LinkColumn>
             </LinkRow>
             <LegalRow>
-                <img src={BlueLogo} alt="ASTERRA logo"/>
+                <Link to="/">
+                <img src={BlueLogo} alt="ASTERRA logo"/></Link>
                 <div className="legal-column">
                     <p>2021 Utilis Corp. All rights reserved.</p>
                     <Link to="/privacy-policy" className="standard-link">Privacy Policy</Link>
