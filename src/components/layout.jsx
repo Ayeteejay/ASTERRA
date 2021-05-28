@@ -44,7 +44,7 @@ breakPoints:{
 
 // Font Family
 fontFamily:{
-    font: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap'), sans-serif",
+    font: "'Inter', sans-serif",
 },
 
 fontSize:{

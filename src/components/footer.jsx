@@ -9,6 +9,7 @@ padding:2rem;
 color:${props=>props.theme.primaryColors.clearWhite};
 p, a{
     font-size:0.8125rem;
+    line-height:1.6;
     text-decoration:none;
 }
 `
@@ -86,7 +87,7 @@ li:first-child{
 const LegalRow = styled.div`
 display:flex;
 justify-content:space-between;
-padding:1rem 0;
+padding:2rem 0 0 0;
 flex-flow:column;
 align-items:center;
 .legal-column{
@@ -100,9 +101,11 @@ align-items:center;
 }
 p{
     0.8125rem;
+    
 }
 @media(min-width:${props=>props.theme.breakPoints.lg}){
     flex-flow:row;
+    padding:1rem 0 0 0;
     .legal-column{
         > * {
             padding:1rem 2rem;
@@ -111,6 +114,11 @@ p{
 }
 `
 
+const date = () =>{
+    const date = new Date();
+    const year = date.getFullYear();
+    return year;
+}
 
 const Footer = () => {
     return (
@@ -122,24 +130,24 @@ const Footer = () => {
                      <li>Amal St. 13, Park Afeg, Building A</li>
                      <li>1st Floor, Rosh Ha'ayin 4809249</li>
                      <li>Israel</li>
-                     <li>Phone: <a href="fill-in-phone">+972.3.5108119</a></li>
-                     <li>Fax: <a href="fill-in-phone">+972.9.8866006</a></li>
-                    <li><a href="mailto:inquiry@utiliscorp.com">inquiry@utiliscorp.com</a></li>
+                     <li>Phone: <a href="#">+972.3.5108119</a></li>
+                     <li>Fax: <a href="#">+972.9.8866006</a></li>
+                    <li><a href="mailto:#">inquiry@utiliscorp.com</a></li>
                  </ul>
                  <ul>
                      <li>Utilis USA</li>
                      <li>16885 West Bernardo Drive</li>
                      <li>Suite 305</li>
                      <li>San Diego, CA 92127</li>
-                     <li>Phone: <a href="fill-in-phone">+1.858.521.9442</a></li>
-                    <li><a href="mailto:inquiry@utiliscorp.com">inquiry@utiliscorp.com</a></li>
+                     <li>Phone: <a href="#">+1.858.521.9442</a></li>
+                    <li><a href="mailto:#">inquiry@utiliscorp.com</a></li>
                  </ul>
                  <ul>
                      <li>Utilis UK</li>
                      <li>Lynton House</li>
                      <li>7/12 Tavistock Sq</li>
                      <li>London, WC1H 9BQ</li>
-                    <li><a href="mailto:inquiry@utiliscorp.com">inquiry@utiliscorp.com</a></li>
+                    <li><a href="mailto:#">inquiry@utiliscorp.com</a></li>
                  </ul>
              </AddressColumn>
              <LinkColumn>
@@ -230,7 +238,7 @@ const Footer = () => {
                 <Link to="/">
                 <img src={BlueLogo} alt="ASTERRA logo"/></Link>
                 <div className="legal-column">
-                    <p>2021 Utilis Corp. All rights reserved.</p>
+                    <p>{date()} Utilis Corp. All rights reserved.</p>
                     <Link to="/privacy-policy" className="standard-link">Privacy Policy</Link>
                     <Link to="/terms-of-use"  className="standard-link">Terms of Use</Link>
                 </div>

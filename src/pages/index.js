@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import ProductData from "../data/product.js";
 import ProductCard from "../components/product-card";
-
 import VideoHero from "../images/homepage/hero-video.jpg";
 import PlanetImage from "../images/homepage/planet.svg";
 
@@ -118,15 +117,58 @@ const ProductRow = styled.div`
 `;
 
 const ProductDescription = styled.div`
+  width: 75%;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
 `;
 const ProductCards = styled.div`
+  width: 75%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5rem;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+  }
+`;
+
+const TechnologySection = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: ${(props) => props.theme.sectionSpacing.standard};
+`;
+const TechnologyRow = styled.div`
+  .technology-intro {
+  }
+  .technology-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: ". technology";
+  }
+  .technology-description {
+    grid-area: technology;
+    background: ${(props) => props.theme.primaryColors.clearWhite};
+    display: grid;
+    grid-gap: 2.5rem;
+    padding: 3rem 0 3rem 3rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left right .";
+    grid-auto-rows: auto;
+    color: ${(props) => props.theme.primaryColors.spaceBlack};
+    span.subheader {
+      font-weight: bold;
+      color: ${(props) => props.theme.primaryColors.oceanBlue};
+    }
+    .left-side {
+      grid-area: left;
+    }
+    .right-side {
+      grid-area: right;
+    }
+  }
 `;
 
 const Index = () => {
@@ -177,6 +219,65 @@ const Index = () => {
             </ProductCards>
           </ProductRow>
         </IntroSection>
+        <TechnologySection>
+          <TechnologyRow>
+            <div className="technology-intro">
+              <h2>
+                What Disinguishes <span className="gradient">ASTERRA</span>
+                Technology
+              </h2>
+            </div>
+            <div className="technology-wrapper">
+              <div className="technology-description">
+                <div className="left-side">
+                  <p>
+                    <span className="subheader">
+                      Only ASTERRA Shows You the Moisture Itself
+                    </span>
+                    <br></br>Rather than rely on predictive or theoretical
+                    analysis, we use ground-penetrating SAR technology to
+                    actually to see the moisture accumulating beneath and around
+                    infrastructure.
+                  </p>
+                  <p>
+                    <span className="subheader">
+                      Patented Algorithms Process and Analyze Data
+                    </span>
+                    <br></br>ASTERRA algorithms are fine-tuned to analyzes the
+                    moisture’s characteristics. It will distinguish treated
+                    drinking water, reclaimed, and wastewater. Resistivity can
+                    also be determined.
+                  </p>
+                </div>
+                <div className="right-side">
+                  <p>
+                    <span className="subheader">
+                      No Capital Spending Needed
+                    </span>
+                    <br></br>
+                    ASTERRA works without the cost of sensors or grounds crews
+                    digging holes.
+                  </p>
+                  <p>
+                    <span className="subheader">Data Integrates Easily</span>
+                    <br></br>
+                    ASTERRA data is easily viewed through all standard
+                    geographic information system (GIS)-based platforms.
+                  </p>
+                  <p>
+                    <span className="subheader">
+                      Expansive Geographic Reach
+                    </span>
+                    <br></br>
+                    ASTERRA can assess the underground systems in a 3,500 sq.
+                    km. area, or 59 km of straight road or rail in a single
+                    pass.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </TechnologyRow>
+        </TechnologySection>
       </Container>
     </Layout>
   );
