@@ -3,6 +3,8 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 import ProductData from "../data/product.js";
+import SolutionsData from "../data/solutions.js";
+import SolutionsCard from "../components/solution-card.jsx";
 import ProductCard from "../components/product-card";
 import VideoHero from "../images/homepage/hero-video.jpg";
 import PlanetImage from "../images/homepage/planet.svg";
@@ -39,7 +41,7 @@ const Container = styled.div`
   }
 `;
 
-const HeroSection = styled.div`
+const HeroSection = styled.section`
   padding: 5rem 5rem 10rem 5rem;
   display: flex;
   flex-flow: column;
@@ -91,7 +93,7 @@ const PlanetLarge = styled.img`
   animation: ${float} 8s infinite;
 `;
 
-const IntroSection = styled.div`
+const IntroSection = styled.section`
   padding: 10rem 5rem 5rem 5rem;
   background-size: 400%;
   animation: ${gradientAnimation} 15s infinite;
@@ -135,33 +137,35 @@ const ProductCards = styled.div`
   }
 `;
 
-const TechnologySection = styled.div`
+const TechnologySection = styled.section`
   display: flex;
   justify-content: center;
   padding: ${(props) => props.theme.sectionSpacing.standard};
 `;
 const TechnologyRow = styled.div`
   .technology-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    h2 {
+      font-size: 1.5rem;
+      grid-area: tech-title;
+    }
   }
   .technology-wrapper {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-areas: ". technology";
+    grid-template-columns: 1fr;
   }
   .technology-description {
     grid-area: technology;
     background: ${(props) => props.theme.primaryColors.clearWhite};
     display: grid;
-    grid-gap: 2.5rem;
-    padding: 3rem 0 3rem 3rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "left right .";
-    grid-auto-rows: auto;
+    padding: 3rem 2rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "right";
     color: ${(props) => props.theme.primaryColors.spaceBlack};
-    span.subheader {
-      font-weight: bold;
-      color: ${(props) => props.theme.primaryColors.oceanBlue};
-    }
     .left-side {
       grid-area: left;
     }
@@ -169,10 +173,57 @@ const TechnologyRow = styled.div`
       grid-area: right;
     }
   }
+  @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+    .technology-description {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "left right .";
+      grid-template-rows: auto;
+      padding: 3rem 0 3rem 3rem;
+      grid-gap: 2.5rem;
+    }
+    .technology-wrapper {
+      grid-template-columns: 1fr 4fr;
+      grid-template-areas: ". technology";
+    }
+    .technology-intro {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: ". tech-title .";
+      h2 {
+        font-size: 3.375rem;
+      }
+    }
+  }
+`;
+
+const SolutionsSection = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  background: ${(props) => props.theme.primaryColors.clearWhite};
+  color: ${(props) => props.theme.primaryColors.spaceBlack};
+`;
+const SolutionsRow = styled.div`
+  width: 75%;
+  .solutions-intro {
+    padding: 10rem 0 0 0;
+    margin: 0 0 3rem 0;
+    border-bottom: 1px solid ${(props) => props.theme.primaryColors.spaceBlack};
+  }
+  .solutions-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+    .solutions-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 `;
 
 const Index = () => {
   const [productData, setProductData] = useState(ProductData);
+  const [solutionData, setSolutionData] = useState(SolutionsData);
   return (
     <Layout>
       <Container>
@@ -278,6 +329,23 @@ const Index = () => {
             </div>
           </TechnologyRow>
         </TechnologySection>
+        <SolutionsSection>
+          <SolutionsRow>
+            <div className="solutions-intro">
+              <h2>Solutions</h2>
+            </div>
+            <div className="solutions-cards">
+              {solutionData.map((value, index) => {
+                return (
+                  <SolutionsCard
+                    key={value.id}
+                    solution={value}
+                  ></SolutionsCard>
+                );
+              })}
+            </div>
+          </SolutionsRow>
+        </SolutionsSection>
       </Container>
     </Layout>
   );

@@ -70,19 +70,15 @@ const Container = styled.div`
 font-family:'Inter';
 display:flex;
 flex-flow:column;
-color:white;
-span.gradient{
-    background: -webkit-linear-gradient(45deg, ${props=>props.theme.primaryColors.oceanBlue},${props=>props.theme.secondaryColors.orange});
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+color:${props=>props.theme.primaryColors.clearWhite};
 h1{
-    font-size:5.9375rem;
-    line-height:1.1;
+    font-size:3rem;
     padding:0 0 1.5rem 0;
+    line-height:1.1;
 }
 h2{
-    font-size:3.375rem;
+    font-size:2rem;
+    padding: 0 0 1.5rem 0;
 }
 h4{
     font-size:1.25rem;
@@ -91,6 +87,7 @@ p{
     line-height:1.7;
     font-size:0.95rem;
     font-weight:200;
+    padding:0 0 1.5rem 0;
 }
 .standard-link{
     color:${props=>props.theme.primaryColors.clearWhite};
@@ -132,6 +129,24 @@ p{
 }
 span.emphasize{
     color:${props=>props.theme.primaryColors.spaceBlack};
+}
+span.gradient{
+    background: -webkit-linear-gradient(45deg, ${props=>props.theme.primaryColors.oceanBlue},${props=>props.theme.secondaryColors.orange});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+span.subheader {
+    font-weight: bold;
+    color: ${(props) => props.theme.primaryColors.oceanBlue};
+}
+
+@media (min-width:${props=>props.theme.breakPoints.lg}){
+    h1{
+        font-size:5.9375rem;
+    }
+    h2{
+        font-size:3.375rem;
+    }
 }
 `;
 

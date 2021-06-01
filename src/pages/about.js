@@ -97,9 +97,6 @@ const HistorySection = styled.div`
 const HistoryRow = styled.div`
   padding: 10rem 0 10rem 12%;
   z-index: 4;
-  h2 {
-    padding: 0 0 2rem 0;
-  }
   .our-history {
     display: flex;
     flex-flow: column;
@@ -127,9 +124,9 @@ const HistoryRow = styled.div`
   }
 `;
 
-const LeadershipIntro = styled.div`
+const LeadershipIntro = styled.section`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   .gradient-column {
     height: 50%;
     background-image: linear-gradient(
@@ -143,17 +140,16 @@ const LeadershipIntro = styled.div`
   }
   .leadership-column {
     background: ${(props) => props.theme.secondaryColors.granite};
-    padding: 5rem;
+    padding: 5rem 2rem;
     h2 {
       color: ${(props) => props.theme.secondaryColors.orange};
-      padding: 0 0 2rem 0;
-    }
-    p {
-      padding: 0 0 2rem 0;
     }
   }
   @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
     grid-template-columns: 2fr 2fr 1fr;
+    .leadership-column {
+      padding: 5rem;
+    }
   }
 `;
 
@@ -170,7 +166,7 @@ const LeadershipSection = styled.div`
 const LeadershipRow = styled.div`
   width: 75%;
   .leadership-intro {
-    padding: 10rem 0 1.5rem 0;
+    padding: 10rem 0 0 0;
     margin: 0 0 3rem 0;
     border-bottom: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
   }
@@ -201,7 +197,6 @@ const AwardsIntroSection = styled.div`
       padding: 5rem 5rem 5rem 0;
       h2 {
         color: ${(props) => props.theme.primaryColors.oceanBlue};
-        padding: 0 0 2rem 0;
       }
     }
     .awards-image {
@@ -273,9 +268,6 @@ const ImpactSection = styled.div`
   .impact-title {
     margin: 0 0 3rem 0;
     border-bottom: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
-    h2 {
-      padding: 0 0 2rem 0;
-    }
   }
   .impact-description {
     display: grid;
