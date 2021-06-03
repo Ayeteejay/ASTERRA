@@ -1,27 +1,44 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
+import ArrowImage from '../images/arrow-right-black.svg';
 
 const Card = styled.div`
 display:flex;
 transition:${props=>props.theme.animationSpeeds.normal};
 cursor:pointer;
+justify-content:space-between;
+align-items:flex-start;
 &:hover{
-    background:${props=>props.theme.primaryColors.oceanBlue};
+color:${props=>props.theme.primaryColors.oceanBlue};
 }
 `
-const Number = styled.div`
-padding:0.5rem 1rem 0 0;
-`
-const Title = styled.div`
-p{
-    font-size:3.375rem;
-    font-weight:bold;
-    padding:0;
+
+const Content = styled.div`
+.solution-row{
+display:flex;
+}
+.solution-id{
+    padding:0.5rem 1rem 0 0;
+}
+.solution-dropdown{
+
+}
+.solution-title{
+    p{
+        font-size:3.375rem;
+        font-weight:bold;
+        padding:0;
+    }
+}
+.solution-description{
+    display:none;
 }
 `
-const Description = styled.div`
-display:none;
+
+const Arrow = styled.div`
+padding:2rem 0 0 0;
 `
+
 
 
 const Solution = (props) =>{
@@ -37,14 +54,24 @@ const Solution = (props) =>{
     }
     return (
         <Card onClick={()=>solutionSwitch()}>
-            <Number>
-                <p>0{props.solution.id}</p></Number>
-            <Title>
-                <p>{props.solution.name}</p>
-            </Title>
-        <Description style={{display:activeSolution ? "block" : "none"}}>
-            <p>{props.solution.description}</p>
-        </Description>
+            <Content>
+            <div className="solution-row">
+                 <div className="solution-id">
+                <p>0{props.solution.id}</p>
+                </div>
+                <div className="solution-dropdown">
+                <div className="solution-title">
+                    <p>{props.solution.name}</p>       
+                    </div>
+                   <div className="solution-description" style={{display:activeSolution ? "block" : "none"}}>
+                   <p>{props.solution.description}</p>
+                   </div>
+                </div>
+            </div>
+            </Content>
+            <Arrow>
+                <img src={ArrowImage} alt="Solution link button"/>
+            </Arrow>
         </Card>
     )
 };

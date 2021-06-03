@@ -55,37 +55,96 @@ display:block;
 
 const MobileToggle = styled.div`
 display:block;
+cursor:pointer;
+position:relative;
 .top-line{
-    height:3px;
-    width:20px;
+    height:2px;
+    width:25px;
     margin: 0 0 4px 0;
     display:block;
-    
     background-color:${props=>props.theme.primaryColors.oceanBlue};
     transition:${props=>props.theme.animationSpeeds.normal};
 }
 .middle-line{
-    height:3px;
-    width:20px;
+    height:2px;
+    width:25px;
+    margin:0 0 4px 0;
+    display:block;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    background-color: ${props=>props.theme.primaryColors.oceanBlue};
+}
+.angle-line{
+    position:absolute;
+    height:2px;
+    width:25px;
+    top:6px;
+    left:0; 
     margin:0 0 4px 0;
     display:block;
     transition:${props=>props.theme.animationSpeeds.normal};
     background-color: ${props=>props.theme.primaryColors.oceanBlue};
 }
 .bottom-line{
-    height:3px;
-    width:20px;
+    height:2px;
+    width:25px;
     margin:0 0 4px 0;
     display:block;
     transition:${props=>props.theme.animationSpeeds.normal};
     background-color: ${props=>props.theme.primaryColors.oceanBlue};
 }
+.hide{
+    opacity:0;
+}
+.rotate-1{
+    transform:rotate(22.5deg);
+}
+.rotate-2{
+    transform:rotate(45deg);
+}
+.rotate-3{
+    transform:rotate(67.5deg);
+}
+.rotate-4{
+    transform:rotate(90deg);
+}
+.rotate-5{
+    transform:rotate(112.5deg);
+}
+.rotate-6{
+    transform:rotate(135deg);
+}
+.rotate-7{
+    transform:rotate(157.5deg);
+}
+
 @media(min-width:${props=>props.theme.breakPoints.lg}){
     display:none;
 }
 `
 
 const Header = () =>{
+
+    let menuActive = false;
+    const animateStar = () => {
+        const top = document.querySelector(".top-line");
+        const bottom = document.querySelector(".bottom-line");      
+        const spiral = Array.from(document.querySelectorAll(".angle-line"));
+        if(menuActive === false){
+            top.classList.add("hide");
+            spiral.forEach((element,index) => {
+                element.classList.add(`rotate-${index+1}`);            
+            });         
+            bottom.classList.add("hide");
+            menuActive = true;
+        }else{
+            menuActive = false;            
+            top.classList.remove("hide");
+            spiral.forEach((element,index) => {
+                element.classList.remove(`rotate-${index+1}`);            
+            });      
+            bottom.classList.remove("hide");
+        }
+    };
     return (
         <Container>
         <Link to="/"><img src={BlueLogo} alt="ASTERRA"/></Link>
@@ -101,9 +160,17 @@ const Header = () =>{
           <CallToActionColumn>
               <Link to="/demo">Request a Demo</Link>
           </CallToActionColumn>
-          <MobileToggle>
+          <MobileToggle onClick={()=>animateStar()}>
               <span className="top-line"></span>
-              <span className="middle-line"></span>
+              <span className="middle-line"></span>              
+              <span className="angle-line"></span>
+              <span className="angle-line"></span>
+              <span className="angle-line"></span>
+              <span className="angle-line"></span>
+              <span className="angle-line"></span>
+              <span className="angle-line"></span>
+              <span className="angle-line"></span>
+              <span className="angle-line"></span>            
               <span className="bottom-line"></span>
           </MobileToggle>
         </Container>
