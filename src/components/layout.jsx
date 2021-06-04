@@ -99,8 +99,8 @@ p{
 }
 .cta-btn{
     background: ${props=>props.theme.secondaryColors.orange};
-    border:none;
-    color:white;
+    border:1px solid ${props=>props.theme.secondaryColors.orange};
+    color:${props=>props.theme.primaryColors.spaceBlack};
     text-transform:uppercase;
     letter-spacing:0.5px;
     transition:800ms;
@@ -108,7 +108,8 @@ p{
     border-radius:5rem;
     cursor:pointer;
     &:hover{
-        background:blue;
+        background:rgba(255,77,29,0.1);
+        color:${props=>props.theme.secondaryColors.orange};
     }
 }
 .cta-btn-ghost{

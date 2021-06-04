@@ -19,15 +19,43 @@ a{
     text-decoration:none;
     text-transform:uppercase;
 }
-`
-
-const LinkColumn = styled.div`
-display:none;
-
 ul{
     list-style:none;
     display:flex;
 }
+.mobile-menu{
+    background: ${props=>props.theme.secondaryColors.slate};
+    opacity:0;
+    width:0%;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    position:absolute;
+    top:100%;
+    left:0;
+    padding:2rem 3rem 3rem 3rem;
+    ul{
+        flex-flow:column;
+    }
+    li{
+        padding:0.5rem 0;
+        margin:0.5rem 0;
+        width:100%;
+        &:not(:last-child){
+            border-bottom:1px solid ${props=>props.theme.secondaryColors.stone};
+        }
+        &:last-child{
+            display:flex;
+            justify-content:center;
+        }
+    }
+}
+.active-menu{
+    opacity:1;
+       width:100%;
+}
+`
+
+const LinkColumn = styled.div`
+display:none;
 li{
     padding:0 1.5rem;
 }
@@ -57,40 +85,18 @@ const MobileToggle = styled.div`
 display:block;
 cursor:pointer;
 position:relative;
-.top-line{
+.top-line, .middle-line, .bottom-line, .angle-line{
     height:2px;
-    width:25px;
+    width:30px;
     margin: 0 0 4px 0;
     display:block;
-    background-color:${props=>props.theme.primaryColors.oceanBlue};
+    background-color:${props=>props.theme.primaryColors.clearWhite};
     transition:${props=>props.theme.animationSpeeds.normal};
-}
-.middle-line{
-    height:2px;
-    width:25px;
-    margin:0 0 4px 0;
-    display:block;
-    transition:${props=>props.theme.animationSpeeds.normal};
-    background-color: ${props=>props.theme.primaryColors.oceanBlue};
 }
 .angle-line{
     position:absolute;
-    height:2px;
-    width:25px;
     top:6px;
     left:0; 
-    margin:0 0 4px 0;
-    display:block;
-    transition:${props=>props.theme.animationSpeeds.normal};
-    background-color: ${props=>props.theme.primaryColors.oceanBlue};
-}
-.bottom-line{
-    height:2px;
-    width:25px;
-    margin:0 0 4px 0;
-    display:block;
-    transition:${props=>props.theme.animationSpeeds.normal};
-    background-color: ${props=>props.theme.primaryColors.oceanBlue};
 }
 .hide{
     opacity:0;
@@ -116,25 +122,28 @@ position:relative;
 .rotate-7{
     transform:rotate(157.5deg);
 }
-
 @media(min-width:${props=>props.theme.breakPoints.lg}){
     display:none;
 }
 `
 
+
+
 const Header = () =>{
 
     let menuActive = false;
-    const animateStar = () => {
+    const openMenu = () => {
         const top = document.querySelector(".top-line");
         const bottom = document.querySelector(".bottom-line");      
         const spiral = Array.from(document.querySelectorAll(".angle-line"));
-        if(menuActive === false){
+        const menu = document.querySelector(".mobile-menu");
+        if(menuActive === false){            
             top.classList.add("hide");
             spiral.forEach((element,index) => {
                 element.classList.add(`rotate-${index+1}`);            
             });         
             bottom.classList.add("hide");
+            menu.classList.add("active-menu");
             menuActive = true;
         }else{
             menuActive = false;            
@@ -143,6 +152,7 @@ const Header = () =>{
                 element.classList.remove(`rotate-${index+1}`);            
             });      
             bottom.classList.remove("hide");
+            menu.classList.remove("active-menu");
         }
     };
     return (
@@ -160,7 +170,7 @@ const Header = () =>{
           <CallToActionColumn>
               <Link to="/demo">Request a Demo</Link>
           </CallToActionColumn>
-          <MobileToggle onClick={()=>animateStar()}>
+          <MobileToggle onClick={()=>openMenu()}>
               <span className="top-line"></span>
               <span className="middle-line"></span>              
               <span className="angle-line"></span>
@@ -173,6 +183,16 @@ const Header = () =>{
               <span className="angle-line"></span>            
               <span className="bottom-line"></span>
           </MobileToggle>
+                <div className="mobile-menu">
+                    <ul>
+                    <li><Link to="/products" className="standard-link">Products</Link></li>
+                    <li><Link to="/solutions" className="standard-link">Solutions</Link></li>
+                    <li><Link to="/partners" className="standard-link">Partners</Link></li>
+                    <li><Link to="/resources" className="standard-link">Resources</Link></li>
+                    <li><Link to="/about" className="standard-link">About</Link></li>
+                    <li><Link to="/demo" className="cta-btn">Schedule a demo</Link></li>
+                    </ul>
+                </div>
         </Container>
     )
 };
