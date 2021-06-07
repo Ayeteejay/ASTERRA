@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
 import LeadershipBackground from "../images/about-us/orange-glow.svg";
+import Highway from "../images/homepage/highway.jpg";
 
 // Keyframes
 const gradientAnimation = keyframes`
@@ -26,6 +27,62 @@ const glow = keyframes`
 100% {
   background-position: 0% 0%;
 }
+`;
+
+const HeroSection = styled.section`
+  background: url(${Highway});
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+`;
+
+const HeroRow = styled.div`
+  width: 80%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: auto;
+  grid-template-areas: "hero";
+`;
+
+const HeroBlock = styled.div`
+  grid-area: hero;
+  width: 100%;
+  padding: 4rem;
+  margin: 4rem;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  background-size: 400%;
+  animation: ${gradientAnimation} 15s infinite;
+  background-image: linear-gradient(
+    45deg,
+    ${(props) => props.theme.primaryColors.oceanBlue},
+    ${(props) => props.theme.secondaryColors.orange}
+  );
+`;
+
+const IntroSection = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-size: 400%;
+  animation: ${gradientAnimation} 15s infinite;
+  background-image: linear-gradient(
+    45deg,
+    ${(props) => props.theme.primaryColors.oceanBlue},
+    ${(props) => props.theme.secondaryColors.orange}
+  );
+`;
+
+const IntroRow = styled.div`
+  width: 80%;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ProductSection = styled.div`
@@ -253,6 +310,22 @@ const Index = () => {
         <meta charSet="utf-8" />
         <title>ASTERRA</title>
       </Helmet>
+      <HeroSection>
+        <HeroRow>
+          <HeroBlock>
+            <h1>From Far Above the Earth</h1>
+            <p>
+              <strong>
+                We see humanity’s signature just beneath the surface
+              </strong>
+              <br></br>
+              ASTERRA’s view from 390 miles above the equator provides the
+              perfect vantage point to see what’s happening beneath our world,
+              understand what it means, and execute a response.
+            </p>
+          </HeroBlock>
+        </HeroRow>
+      </HeroSection>
       <ProductSection>
         <ProductRow>
           <IntroBlock>
