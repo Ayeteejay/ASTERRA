@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import BlueLogo from '../images/asterra-blue-logo.svg';
+import Chevron from '../images/chevron.svg';
+import Arrow from '../images/arrow-right.svg';
 import {Link} from 'gatsby';
 
 const Container = styled.div`
@@ -25,6 +27,7 @@ ul{
 }
 .mobile-menu{
     background: ${props=>props.theme.secondaryColors.slate};
+    border-top:1px solid ${props=>props.theme.primaryColors.clearWhite};
     opacity:0;
     width:0%;
     transition:${props=>props.theme.animationSpeeds.normal};
@@ -36,7 +39,7 @@ ul{
         flex-flow:column;
     }
     li{
-        padding:0.5rem 0;
+        padding:1rem 0 0.6rem 0;
         margin:0.5rem 0;
         width:100%;
         &:not(:last-child){
@@ -46,6 +49,41 @@ ul{
             display:flex;
             justify-content:center;
         }
+    }
+    .drawer{
+        display:flex;
+        justify-content:space-between;
+        cursor:pointer;
+        transition:${props=>props.theme.animationSpeeds.fast};
+        &:hover{
+            color:${props=>props.theme.secondaryColors.orange};
+        }
+    }
+    .drawer-content{
+    opacity:0;
+    height:0;
+    display:flex;
+    justify-content:center;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    }
+    .open{
+        height:250px;
+        opacity:1;
+        padding:1.5rem 0;
+      
+    }
+    .chevron{
+        width:6px;
+    }
+    .arrow{
+        width:20px;
+        transition:${props=>props.theme.animationSpeeds.fast};
+    }
+    .rotation{
+        transform:rotate(90deg);
+    }
+    .product-drawer{
+        
     }
 }
 .active-menu{
@@ -98,8 +136,13 @@ position:relative;
     top:6px;
     left:0; 
 }
-.hide{
+.hide-top{
     opacity:0;
+    transform:translate(0,10px);
+}
+.hide-btm{
+opacity:0;
+transform:translate(0,-10px);
 }
 .rotate-1{
     transform:rotate(22.5deg);
@@ -138,23 +181,35 @@ const Header = () =>{
         const spiral = Array.from(document.querySelectorAll(".angle-line"));
         const menu = document.querySelector(".mobile-menu");
         if(menuActive === false){            
-            top.classList.add("hide");
+            top.classList.add("hide-top");
             spiral.forEach((element,index) => {
                 element.classList.add(`rotate-${index+1}`);            
             });         
-            bottom.classList.add("hide");
+            bottom.classList.add("hide-btm");
             menu.classList.add("active-menu");
             menuActive = true;
         }else{
             menuActive = false;            
-            top.classList.remove("hide");
+            top.classList.remove("hide-top");
             spiral.forEach((element,index) => {
                 element.classList.remove(`rotate-${index+1}`);            
             });      
-            bottom.classList.remove("hide");
+            bottom.classList.remove("hide-btm");
             menu.classList.remove("active-menu");
         }
     };
+
+    const openDrawer = (dropdownSection) =>{
+        const icon = document.querySelectorAll(".arrow")[dropdownSection-1];
+        const content = document.querySelectorAll(".drawer-content")[dropdownSection-1];
+        if(content.classList.contains("open")){
+            content.classList.remove("open");
+            icon.classList.remove("rotation");
+        }else{
+            content.classList.add("open");
+            icon.classList.add("rotation");
+        }
+    }
     return (
         <Container>
         <Link to="/"><img src={BlueLogo} alt="ASTERRA"/></Link>
@@ -185,12 +240,26 @@ const Header = () =>{
           </MobileToggle>
                 <div className="mobile-menu">
                     <ul>
-                    <li><Link to="/products" className="standard-link">Products</Link></li>
-                    <li><Link to="/solutions" className="standard-link">Solutions</Link></li>
-                    <li><Link to="/partners" className="standard-link">Partners</Link></li>
-                    <li><Link to="/resources" className="standard-link">Resources</Link></li>
-                    <li><Link to="/about" className="standard-link">About</Link></li>
-                    <li><Link to="/demo" className="cta-btn">Schedule a demo</Link></li>
+                    <li onClick={()=>openDrawer(1)}><div className="drawer">Products<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
+                    <div className="drawer-content">
+                        <div className="product-drawer">
+                        <div>
+                            <h4>MasterPlan</h4>
+                            <p>Pipe Deficiency Assessment</p>
+                        </div>
+                        <div>
+                            <h4>MasterPlan</h4>
+                            <p>Leak Detection and Analysis</p>
+                        </div>
+                        </div>
+                    </div>
+                    </li>
+                    <li onClick={()=>openDrawer(2)}><div className="drawer">Solutions<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
+                    <div className="drawer-content">Some stuff here</div></li>
+                    <li>Partners<img src={Arrow} className="arrow" alt="Dropdown indicator"/></li>
+                    <li>Resources<img src={Arrow} className="arrow" alt="Dropdown indicator"/></li>
+                    <li>About<img src={Arrow} className="arrow" alt="Dropdown indicator"/></li>
+                    <li><Link to="/demo" className="cta-btn-ghost">Schedule a demo</Link></li>
                     </ul>
                 </div>
         </Container>

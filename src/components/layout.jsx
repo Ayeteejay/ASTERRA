@@ -103,29 +103,43 @@ p{
     color:${props=>props.theme.primaryColors.spaceBlack};
     text-transform:uppercase;
     letter-spacing:0.5px;
-    transition:800ms;
+    transition:${props=>props.theme.animationSpeeds.normal};
     padding:1rem 1.5rem;
     border-radius:5rem;
     cursor:pointer;
+    white-space:nowrap;
+    width:100%;
+    text-align:center;
     &:hover{
         background:rgba(255,77,29,0.1);
         color:${props=>props.theme.secondaryColors.orange};
+    }
+    @media(min-width:${props=>props.theme.breakPoints.lg}){
+        width:auto;
+    
     }
 }
 .cta-btn-ghost{
     background:none;
     border:1px solid ${props=>props.theme.primaryColors.clearWhite};
     color:white;
-    font-size:0.95rem;
     text-transform:uppercase;
     letter-spacing:0.5px;
-    transition:800ms;
+    transition:${props=>props.theme.animationSpeeds.normal};
     padding:1rem 1.5rem;
     border-radius:5rem;
     cursor:pointer;
+    white-space:nowrap;
+    width:100%;
+    text-align:center;
     &:hover{
-        background:${props=>props.theme.secondaryColors.orange};
+        background:rgba(255,77,29,0.1);
+        color:${props=>props.theme.secondaryColors.orange};
         border:1px solid ${props=>props.theme.secondaryColors.orange};
+    }
+    @media(min-width:${props=>props.theme.breakPoints.lg}){
+        width:auto;
+    
     }
 }
 span.emphasize{
