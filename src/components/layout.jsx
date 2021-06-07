@@ -23,6 +23,7 @@ secondaryColors:{
     pavement: "#e5e5e5",
     granite: "#282828",
     stone:"#696969",
+    rock:"#707070",
 },
 
 // Animation Transisitions

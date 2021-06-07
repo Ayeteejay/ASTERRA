@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
 import LeadershipBackground from "../images/about-us/orange-glow.svg";
 import Highway from "../images/homepage/highway.jpg";
+import Resources from "../components/resources-section";
 
 // Keyframes
 const gradientAnimation = keyframes`
@@ -326,6 +327,7 @@ const Index = () => {
           </HeroBlock>
         </HeroRow>
       </HeroSection>
+      <Resources></Resources>
       <ProductSection>
         <ProductRow>
           <IntroBlock>
