@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "asterra",
+    siteUrl: `https://www.ayeteejay.com`,
   },
   plugins: [
     "gatsby-plugin-styled-components",

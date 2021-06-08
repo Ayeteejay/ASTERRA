@@ -84,7 +84,6 @@ const FeaturedCard = styled.div`
 
   background-size: 300%;
   transition: 1000ms;
-  cursor: pointer;
   padding: 3rem;
   display: flex;
   justify-content: space-between;
@@ -105,7 +104,22 @@ const FeaturedCard = styled.div`
   }
   &:hover {
     background-position: 90% 50%;
+    a{
+        background:white;
+        color:black;
+        &:hover{
+            background:none;
+            color:white;
+            border:1px solid white;
+        }
+    }
   }
+.description{
+    display:flex;
+    justify-content:flex-end;
+    flex-flow:column;
+    height:65%;
+}
 `;
 
 const ProductCard = styled.div`
@@ -212,7 +226,8 @@ const Cards = () => {
                         <FeaturedCard>
               <p className="featured">featured</p>
               <div className="description">
-                <h3>
+               
+    <h3>
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod
                 </h3>
@@ -220,7 +235,10 @@ const Cards = () => {
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod
                 </p>
+                 
+
               </div>
+        <div>        <a href="/" className="ghost-btn">Learn More</a> </div>
             </FeaturedCard>
                       
 <ProductCard>
