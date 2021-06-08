@@ -5,7 +5,6 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Fade from 'react-reveal'
 
-
 const theme = {
 
 // Primary Colors
@@ -89,13 +88,44 @@ h3{
     font-size:1.875rem;
 }
 h4{
+    font-size:1.375rem;
+}
+h5{
     font-size:1.25rem;
+}
+h6{
+    font-size:1rem;
 }
 p{
     line-height:1.7;
     font-size:0.95rem;
     font-weight:200;
 }
+ul{
+    list-style:none;
+}
+li{
+    line-height:1.7;
+    &::before{
+        content:'•';
+        color:red;
+        padding:0 0.3rem 0 0;
+    }
+}
+.quotation{
+    font-size:3.75rem;
+    font-weight:200;
+    line-height:1.25;
+    &::before{
+        content: '"';
+        position: absolute;
+        margin-left: -.4em;
+    }
+}
+span.emphasis{
+    color:${props=>props.theme.primaryColors.oceanBlue};
+}
+
 .standard-link{
     color:${props=>props.theme.primaryColors.clearWhite};
     letter-spacing:1px;
@@ -124,42 +154,127 @@ p{
 }
 .text-link:hover:after{
        width:100%;
-       
+       display:flex;
+       justify-content:space-between;
        
 }
-.cta-btn{
-    background: ${props=>props.theme.secondaryColors.orange};
-    border:none;
-    color:white;
-    text-transform:uppercase;
-    letter-spacing:0.5px;
-    transition:800ms;
-    padding:1rem 1.5rem;
-    border-radius:5rem;
+.arrow-link{
+    width:250px;
+    justify-content:space-between;
+    display:flex;
+    align-items:center;
     cursor:pointer;
-    &:hover{
-        background:blue;
+    p{
+        text-transform:uppercase;
+        font-weight:bold;
+        transition:${props=>props.theme.animationSpeeds.normal};
+    }
+#arrow-line,#chevron{
+    transition:${props=>props.theme.animationSpeeds.normal};
+}
+
+ &:hover{
+    p{
+        color:${props=>props.theme.secondaryColors.orange};
+    }
+    #arrow-line{
+        stroke: ${props=>props.theme.secondaryColors.orange};        
+    }
+    #chevron{
+        stroke:${props=>props.theme.secondaryColors.orange};
+    }
+ }
+}
+
+.arrow-link-normal{
+    
+    justify-content:space-between;
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+    p{
+        text-transform:uppercase;
+        font-weight:bold;
+        transition:${props=>props.theme.animationSpeeds.normal};
     }
 }
-.cta-btn-ghost{
-    background:none;
-    border:1px solid ${props=>props.theme.primaryColors.clearWhite};
-    color:white;
-    font-size:0.95rem;
+.primary-btn{
+    background: ${props=>props.theme.secondaryColors.orange};
+    border:1px solid ${props=>props.theme.secondaryColors.orange};
+    color:black;
     text-transform:uppercase;
+    text-decoration:none;
     letter-spacing:0.5px;
-    transition:800ms;
-    padding:1rem 1.5rem;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
     border-radius:5rem;
+    font-size:0.95rem;
     cursor:pointer;
     &:hover{
-        background:${props=>props.theme.secondaryColors.orange};
+        background:rgba(255,77,29,.14);
+        color:${props=>props.theme.secondaryColors.orange};
+    }
+}
+.secondary-btn{
+    background: ${props=>props.theme.primaryColors.oceanBlue};
+    border:1px solid ${props=>props.theme.primaryColors.oceanBlue};
+    color:white;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.5px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
+    border-radius:5rem;
+    font-size:0.95rem;
+    cursor:pointer;
+    &:hover{
+        background:rgba(0,43,255,.14);
+        color:${props=>props.theme.primaryColors.oceanBlue};
+    }
+}
+.tertiary-btn{
+    background: ${props=>props.theme.secondaryColors.lime};
+    border:1px solid ${props=>props.theme.secondaryColors.lime};
+    color:black;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.5px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
+    border-radius:5rem;
+    font-size:0.95rem;
+    cursor:pointer;
+    &:hover{
+        background:rgba(19,204,168,.32);
+        color:${props=>props.theme.secondaryColors.lime};
+    }
+}
+.ghost-btn{
+    background: none;
+    border:1px solid white;
+    color:white;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.5px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
+    border-radius:5rem;
+    font-size:0.95rem;
+    cursor:pointer;
+    &:hover{
+        background:rgba(255,77,29,.14);
         border:1px solid ${props=>props.theme.secondaryColors.orange};
+        color:${props=>props.theme.secondaryColors.orange};
     }
 }
 span.emphasize{
     color:${props=>props.theme.primaryColors.spaceBlack};
 }
+.title {
+    border-bottom: 1px solid #5d5d5d;
+    padding: 0 0 1.5rem 0;
+    margin: 0 0 2rem 0;
+  }
 `;
 
 const Layout = ({children}) => {
