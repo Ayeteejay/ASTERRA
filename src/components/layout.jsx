@@ -198,7 +198,7 @@ span.emphasis{
         transition:${props=>props.theme.animationSpeeds.normal};
     }
 }
-.primary-btn{
+.primary-btn-orange{
     background: ${props=>props.theme.secondaryColors.orange};
     border:1px solid ${props=>props.theme.secondaryColors.orange};
     color:black;
@@ -215,7 +215,7 @@ span.emphasis{
         color:${props=>props.theme.secondaryColors.orange};
     }
 }
-.secondary-btn{
+.primary-btn-blue{
     background: ${props=>props.theme.primaryColors.oceanBlue};
     border:1px solid ${props=>props.theme.primaryColors.oceanBlue};
     color:white;
@@ -232,7 +232,7 @@ span.emphasis{
         color:${props=>props.theme.primaryColors.oceanBlue};
     }
 }
-.tertiary-btn{
+.primary-btn-lime{
     background: ${props=>props.theme.secondaryColors.lime};
     border:1px solid ${props=>props.theme.secondaryColors.lime};
     color:black;
@@ -247,6 +247,58 @@ span.emphasis{
     &:hover{
         background:rgba(19,204,168,.32);
         color:${props=>props.theme.secondaryColors.lime};
+    }
+}
+.secondary-btn{
+    background: none;
+    border:1px solid ${props=>props.theme.secondaryColors.lime};
+    color:${props=>props.theme.secondaryColors.lime};
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.5px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
+    border-radius:5rem;
+    font-size:0.95rem;
+    cursor:pointer;
+    &:hover{
+        background:rgba(19,204,168,.32);
+        color:${props=>props.theme.secondaryColors.lime};
+    }
+}
+.tertiary-btn{
+    background: none;
+    border:1px solid white;
+    color:white;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.5px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
+    border-radius:5rem;
+    font-size:0.95rem;
+    cursor:pointer;
+    &:hover{
+        background:rgba(255,77,29,.14);
+        border:1px solid ${props=>props.theme.secondaryColors.orange};
+        color:${props=>props.theme.secondaryColors.orange};
+    }
+}
+.tertiary-btn-alt{
+    background: none;
+    border:1px solid white;
+    color:white;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.5px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
+    border-radius:5rem;
+    font-size:0.95rem;
+    cursor:pointer;
+    &:hover{
+       background:white;
+       color:black;
     }
 }
 .ghost-btn{

@@ -15,6 +15,15 @@ const Row =  styled.div`
     margin:4rem 0;
     display:flex;
     justify-content:space-between;
+    flex-flow:column;
+    .btn-row{
+        margin:1rem 0;
+        padding:1rem;
+        display:flex;
+        a{
+            margin:0 1rem 0 0;
+        }
+    }
 }
 `
 
@@ -25,10 +34,18 @@ const Buttons = () =>{
             <div className="title"><h2>Buttons</h2></div>
                 <Row>
                     <div className="subsection">
-                        <a href="/" className="primary-btn">Learn More</a>
-                        <a href="/" className="secondary-btn">Learn More</a>
-                        <a href="/" className="tertiary-btn">Learn More</a>
-                        <a href="/" className="ghost-btn">Learn More</a>
+                        <div className="btn-row">
+                        <a href="/" className="primary-btn-orange">Primary Link</a>
+                        <a href="/" className="primary-btn-blue">Primary Link</a>
+                        <a href="/" className="primary-btn-lime">Primary Link</a>
+                        </div>
+                        <div className="btn-row">
+                        <a href="/" className="secondary-btn">Secondary Link</a>
+                        </div>
+                        <div className="btn-row">
+                        <a href="/" className="tertiary-btn">Tertiary Link 1</a>
+                        <a href="/" className="tertiary-btn-alt">Tertiary Link 2</a>
+                        </div>
                     </div>
 
                                             <div className="subsection">
