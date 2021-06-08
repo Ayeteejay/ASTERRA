@@ -79,7 +79,7 @@ const Resources = () => {
     return (
         <Section>
             <Container>
-               <div className="title"> </div>
+               <div className="title"><h2>Resources</h2></div>
                     <CardRow>
                             <Card>
                                 <div className="image-row">

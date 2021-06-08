@@ -104,6 +104,29 @@ p{
         color:${props=>props.theme.secondaryColors.orange};
     }  
 }
+.text-link{
+ display:inline-block;
+ position:relative;
+ color:${props=>props.theme.secondaryColors.orange};
+ font-weight:bold;
+ text-decoration:none;
+ &:after{
+     content:'';
+     position:absolute;
+     width:0%;
+     height:1px;
+     bottom:0;
+     left:0;
+     background: ${props=>props.theme.secondaryColors.orange};
+     transform-origin:bottom right;
+     transition:${props=>props.theme.animationSpeeds.fast};
+ }
+}
+.text-link:hover:after{
+       width:100%;
+       
+       
+}
 .cta-btn{
     background: ${props=>props.theme.secondaryColors.orange};
     border:none;

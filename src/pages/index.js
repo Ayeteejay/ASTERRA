@@ -37,7 +37,6 @@ const HeroSection = styled.section`
   justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 50vh;
 `;
 
 const HeroRow = styled.div`
@@ -314,7 +313,7 @@ const Index = () => {
       <HeroSection>
         <HeroRow>
           <HeroBlock>
-            <h1>From Far Above the Earth</h1>
+            <h1>Components Library</h1>
             <p>
               <strong>
                 We see humanity’s signature just beneath the surface
@@ -336,9 +335,13 @@ const Index = () => {
               Property Assessment.
             </h3>
             <p>
-              ASTERRA’s unique technology products provide hard intelligence and
-              analysis to managers and engineers to support data-based decisions
-              on large and massive-scale infrastructure.
+              ASTERRA’s unique{" "}
+              <a href="/" className="text-link">
+                technology products
+              </a>{" "}
+              provide hard intelligence and analysis to managers and engineers
+              to support data-based decisions on large and massive-scale
+              infrastructure.
             </p>
           </IntroBlock>
           <RecoverBlock className="block-style">
