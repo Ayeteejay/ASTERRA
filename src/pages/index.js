@@ -2,7 +2,6 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
-import LeadershipBackground from "../images/about-us/orange-glow.svg";
 import Highway from "../images/homepage/highway.jpg";
 import Cards from "../components/cards-section";
 

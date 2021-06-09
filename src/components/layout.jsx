@@ -67,10 +67,10 @@ sectionSpacing: {
 };
 
 const Container = styled.div`
-font-family:'Inter';
+font-family:'Inter', sans-serif;
 display:flex;
 flex-flow:column;
-color:white;
+color:${props=>props.theme.primaryColors.clearWhite};
 span.gradient{
     background: -webkit-linear-gradient(45deg, ${props=>props.theme.primaryColors.oceanBlue},${props=>props.theme.secondaryColors.orange});
     -webkit-background-clip: text;
@@ -187,7 +187,6 @@ span.emphasis{
 }
 
 .arrow-link-normal{
-    
     justify-content:space-between;
     display:flex;
     align-items:center;
@@ -197,7 +196,19 @@ span.emphasis{
         font-weight:bold;
         transition:${props=>props.theme.animationSpeeds.normal};
     }
+    #arrow-line-normal,#chevron-normal{
+        transition:${props=>props.theme.animationSpeeds.normal};
+    }
+    &:hover{
+        p{
+            color:#3355FF;
+        }
+        #arrow-line-normal,#chevron-normal{
+            stroke:#3355FF;
+        }
+    }
 }
+
 .primary-btn-orange{
     background: ${props=>props.theme.secondaryColors.orange};
     border:1px solid ${props=>props.theme.secondaryColors.orange};

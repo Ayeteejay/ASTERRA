@@ -124,16 +124,15 @@ const FeaturedCard = styled.div`
 
 const ProductCard = styled.div`
 border:1px ​solid #5d5d5;
-cursor:pointer;
 padding:2.5rem;
 transition:${props=>props.theme.animationSpeeds.normal};
 border: 1px solid #5d5d5d;
-h4, p,   #circle-one,#circle-two{
+h4, p, #circle-one,#circle-two{
     transition:${props=>props.theme.animationSpeeds.normal};
 }
 
 p{
-    padding:0.5rem 0 3rem 0;
+    padding:0.5rem 0 2rem 0;
 }
 &:hover {
     border: 1px solid ${(props) => props.theme.secondaryColors.orange};
@@ -145,12 +144,51 @@ p{
      stroke:${(props) => props.theme.secondaryColors.orange};
 
     }
+    
+    .description-link, .cta-btn{
+        opacity:1;
+        transform:translate(0,0px);
+    }
   }
+
+  .icon-link-row{
+    display:flex;
+justify-content:space-between;
+
+  }
+.cta-btn{
+  opacity:0;
+  transform:translate(0,20px);
+}
+  .description-link{
+    justify-content:space-between;
+    display:flex;
+    padding:0 0 3rem 0;
+    align-items:center;
+    font-weight:bold;
+    text-transform:uppercase;
+    opacity:0;
+    transform:translate(0,20px);
+    transition:${props=>props.theme.animationSpeeds.normal};
+    text-decoration:none;
+    color:${props=>props.theme.primaryColors.clearWhite};
+    #arrow-line-solution,#chevron-solution{
+      transition:${props=>props.theme.animationSpeeds.normal};
+    }
+    &:hover{
+      color:${props=>props.theme.secondaryColors.orange};
+      
+      #arrow-line-solution,#chevron-solution{
+        stroke:${props=>props.theme.secondaryColors.orange};
+      }
+    }
+  }
+
+
 `
 const ResourceCard=  styled.div`
 padding:3rem;
 display:flex;
-cursor:pointer;
 justify-content:center;
 align-items:center;
 transition:${props=>props.theme.animationSpeeds.normal};
@@ -165,7 +203,6 @@ const SolutionCard = styled.div`
 position:relative;
 background:url(${Downtown});
 background-size:100%;
-cursor:pointer;
 transition:2s ease-in-out;
 padding:10rem 2.5rem 2.5rem 2.5rem;
 background-position:center;
@@ -173,7 +210,6 @@ height:325px;
 p{
     padding:0.5rem 0 0 0;
 }
-
 .content{
 position:absolute;
 top:0;
@@ -182,23 +218,32 @@ left:0;
 background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8), rgba(0,0,0,0.9));
 padding:5rem 2.5rem 2.5rem 2.5rem;
 }
-.arrow-solution{
-    justify-content:space-between;
-    display:flex;
-    align-items:center;
-    opacity:0;
-    transform:translate(0,20px);
+.lower-tiered-link{
+  justify-content:space-between;
+  display:flex;
+  padding:0.5rem 0 0 0;
+  align-items:center;
+  font-weight:bold;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translate(0,20px);
+  transition:${props=>props.theme.animationSpeeds.normal};
+  text-decoration:none;
+  color:${props=>props.theme.primaryColors.clearWhite};
+  #arrow-line-solution,#chevron-solution{
     transition:${props=>props.theme.animationSpeeds.normal};
-    p{
-        text-transform:uppercase;
-        font-weight:bold;
-        transition:${props=>props.theme.animationSpeeds.normal};
+  }
+  &:hover{
+    color:${props=>props.theme.secondaryColors.orange};
+    #arrow-line-solution,#chevron-solution{
+      stroke:${props=>props.theme.secondaryColors.orange};
     }
+  }
 }
 &:hover{
     background-size:175%;
     background-position:center;
-    .arrow-solution{
+    .lower-tiered-link{
         opacity:1;
         transform:translate(0,0px);
     }
@@ -224,7 +269,7 @@ const Cards = () => {
             
                 
                         <FeaturedCard>
-              <p className="featured">featured</p>
+              <p className="featured">Featured</p>
               <div className="description">
                
     <h3>
@@ -251,14 +296,26 @@ const Cards = () => {
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod
                 </p>
+             
+                {/* <a href="/" className="description-link">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="28.635" height="16.707" viewBox="0 0 28.635 16.707">
+                        <g id="arrow-icon" data-name="Group 39419" transform="translate(-1272.365 13934.225)">
+                            <g id="Group_39276" data-name="Group 39276" transform="translate(4237.936 -23484.371)">
+                            <line id="arrow-line-solution" data-name="Line 24" x1="28" transform="translate(-2965.571 9558.5)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            <path id="chevron-solution" data-name="Path 61563" d="M-2937.5,9566.5l8-8-8-8" transform="translate(-8.143)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            </g>
+                        </g>
+                        </svg></a> */}
+                </div>
+                <div className="icon-link-row">
                 <svg xmlns="http://www.w3.org/2000/svg" width="57.216" height="57.216" viewBox="0 0 57.216 57.216">
   <g id="all-circles" data-name="Group 39425" transform="translate(0.5 0.5)">
     <circle id="circle-one" data-name="Ellipse 764" cx="28.108" cy="28.108" r="28.108" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
     <circle id="circle-two" data-name="Ellipse 765" cx="15.222" cy="15.222" r="15.222" transform="translate(12.886 12.886)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
   </g>
 </svg>
+<a href="/" className="ghost-btn cta-btn">Learn More</a> 
+</div>
 
-              </div>
 </ProductCard>
 
 <ResourceCard>
@@ -282,16 +339,16 @@ const Cards = () => {
                                 <div className="content">
                                 <h4>Water</h4>
                                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores</p>
-                                <div className="arrow-solution"><p>Learn More</p>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="28.635" height="16.707" viewBox="0 0 28.635 16.707">
-                        <g id="Group_39419" data-name="Group 39419" transform="translate(-1272.365 13934.225)">
+                          <a href="/" className="lower-tiered-link">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="28.635" height="16.707" viewBox="0 0 28.635 16.707">
+                        <g id="arrow-icon" data-name="Group 39419" transform="translate(-1272.365 13934.225)">
                             <g id="Group_39276" data-name="Group 39276" transform="translate(4237.936 -23484.371)">
-                            <line id="arrow-line-normal" data-name="Line 24" x1="28" transform="translate(-2965.571 9558.5)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
-                            <path id="chevron-normal" data-name="Path 61563" d="M-2937.5,9566.5l8-8-8-8" transform="translate(-8.143)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            <line id="arrow-line-solution" data-name="Line 24" x1="28" transform="translate(-2965.571 9558.5)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                            <path id="chevron-solution" data-name="Path 61563" d="M-2937.5,9566.5l8-8-8-8" transform="translate(-8.143)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
                             </g>
                         </g>
-                        </svg>
-                        </div>
+                        </svg></a>
+                                        
+                        
                                 </div>
                             </SolutionCard>
                     </Row>
