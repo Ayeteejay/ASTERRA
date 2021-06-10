@@ -199,14 +199,14 @@ span.emphasis{
     #arrow-line-normal,#chevron-normal{
         transition:${props=>props.theme.animationSpeeds.normal};
     }
-    &:hover{
-        p{
-            color:#3355FF;
-        }
-        #arrow-line-normal,#chevron-normal{
-            stroke:#3355FF;
-        }
-    }
+    // &:hover{
+    //     p{
+    //         color:#3355FF;
+    //     }
+    //     #arrow-line-normal,#chevron-normal{
+    //         stroke:#3355FF;
+    //     }
+    // }
 }
 
 .primary-btn-orange{
@@ -329,6 +329,19 @@ span.emphasis{
         border:1px solid ${props=>props.theme.secondaryColors.orange};
         color:${props=>props.theme.secondaryColors.orange};
     }
+}
+.card-btn{
+    background: none;
+    border:1px solid white;
+    color:white;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.5px;
+    transition:${props=>props.theme.animationSpeeds.normal};
+    padding:1rem 2rem;
+    border-radius:5rem;
+    font-size:0.95rem;
+    cursor:pointer;
 }
 span.emphasize{
     color:${props=>props.theme.primaryColors.spaceBlack};
