@@ -28,8 +28,9 @@ ul{
 .mobile-menu{
     background: ${props=>props.theme.secondaryColors.slate};
     border-top:1px solid ${props=>props.theme.primaryColors.clearWhite};
-    opacity:0;
-    width:0%;
+    opacity:.25;
+    width:100%;
+    transform:translate(-100%, 0px);
     transition:${props=>props.theme.animationSpeeds.normal};
     position:absolute;
     top:100%;
@@ -88,7 +89,8 @@ ul{
 }
 .active-menu{
     opacity:1;
-       width:100%;
+    width:100%;
+    transform:translate(0px, 0px);
 }
 `
 
