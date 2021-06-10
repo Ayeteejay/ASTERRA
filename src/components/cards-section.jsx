@@ -33,10 +33,6 @@ grid-gap:2rem;
 `
 
 const Card = styled.div`
-a{
-  text-decoration:none;
-  color:white;
-}
 cursor:pointer;
 border:1px solid ${props=>props.theme.secondaryColors.rock};
 transition:${props=>props.theme.animationSpeeds.normal};
@@ -57,7 +53,7 @@ p.resource-type{
     text-transform:uppercase;
     letter-spacing:1px;
     font-weight:200;
-    
+    transition:${props=>props.theme.animationSpeeds.normal};
     padding:0 0 0.75rem 0;
     font-size:0.8125rem;
 }
@@ -76,7 +72,7 @@ height:150px;
 }
 p{
     padding:0.5rem 0 3rem 0;
-    transition:${props=>props.theme.animationSpeeds.normal};
+    
 }
 `
 
@@ -233,8 +229,7 @@ const Cards = () => {
             <Container>
                <div className="title"><h2>Cards</h2></div>
                     <Row>
-                            <Card>
-                              <a href="/">
+                            <Card>                      
                                 <div className="image-row">                                    
                                 </div>
                                 <div className="content-row">
@@ -242,8 +237,7 @@ const Cards = () => {
                                 <h4>Something goes here</h4>     
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde blanditiis autem distinctio cupiditate repellat voluptatum sunt. Perspiciatis numquam aspernatur eos, reprehenderit natus dolores.</p>  
                             <a href="/" className="card-btn">Learn More</a>   
-                                </div>      
-                                </a>
+                                </div>                                
                             </Card>              
                         <FeaturedCard>
                           
