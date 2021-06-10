@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Arrow from '../images/arrow-right.svg';
+import Logomark from './logomark';
 
 const Section = styled.section`
 display:flex;
@@ -34,6 +35,9 @@ const Buttons = () =>{
             <div className="title"><h2>Buttons</h2></div>
                 <Row>
                     <div className="subsection">
+                 <div className="btn-row">
+                     <Logomark></Logomark>
+                 </div>
                         <div className="btn-row">
                         <a href="/" className="primary-btn-orange">Primary Link</a>
                         <a href="/" className="primary-btn-blue">Primary Link</a>
