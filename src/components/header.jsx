@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import BlueLogo from '../images/asterra-blue-logo.svg';
 import Chevron from '../images/chevron.svg';
@@ -175,13 +175,33 @@ transform:translate(0,-10px);
 
 
 const Header = () =>{
+    const top = document.querySelector(".top-line");
+    const bottom = document.querySelector(".bottom-line");      
+    const spiral = Array.from(document.querySelectorAll(".angle-line"));
+    const menu = document.querySelector(".mobile-menu");
+    const [viewSize, setViewSize] = useState(
+        window.innerWidth
+    );
 
+    useEffect(()=>{            
+      const setSize = () =>{ setViewSize(window.innerWidth)};
+      window.addEventListener("resize", setSize);
+      return () => window.removeEventListener("resize",setSize);
+    },[setViewSize]);
     let menuActive = false;
+
+    const [isDesktop,setDesktop] = useState(false);
+    useEffect(()=>{
+        if(viewSize > 991){
+            setDesktop(true);
+            menu.classList.remove("active-menu");
+        }else{
+            setDesktop(false)
+        };
+    })
+
+
     const openMenu = () => {
-        const top = document.querySelector(".top-line");
-        const bottom = document.querySelector(".bottom-line");      
-        const spiral = Array.from(document.querySelectorAll(".angle-line"));
-        const menu = document.querySelector(".mobile-menu");
         if(menuActive === false){            
             top.classList.add("hide-top");
             spiral.forEach((element,index) => {
