@@ -27,9 +27,11 @@ width:80%;
 
 const Row = styled.div`
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr;
 grid-gap:2rem;
-
+@media (min-width:${props=>props.theme.breakPoints.lg}){
+  grid-template-columns:repeat(2,1fr);
+}
 `
 
 const Card = styled.div`

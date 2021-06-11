@@ -62,7 +62,6 @@ const Index = () => {
         <meta charSet="utf-8" />
         <title>ASTERRA</title>
       </Helmet>
-
       <HeroSection>
         <HeroRow>
           <HeroBlock>
