@@ -7,7 +7,6 @@ import Fade from 'react-reveal'
 
 
 const theme = {
-
 // Primary Colors
 primaryColors: {
     oceanBlue: "#002bff",
@@ -67,7 +66,7 @@ sectionSpacing: {
 };
 
 const Container = styled.div`
-font-family:'Inter';
+font-family:'Inter',sans-serif;
 display:flex;
 flex-flow:column;
 color:${props=>props.theme.primaryColors.clearWhite};
