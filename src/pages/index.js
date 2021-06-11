@@ -32,15 +32,11 @@ const HeroSection = styled.section`
 
 const HeroRow = styled.div`
   width: 80%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-auto-rows: auto;
-  grid-template-areas: "hero";
+  display: flex;
+  justify-content: center;
 `;
 
 const HeroBlock = styled.div`
-  grid-area: hero;
-  width: 100%;
   padding: 4rem;
   margin: 4rem;
   display: flex;
@@ -66,11 +62,9 @@ const Index = () => {
         <HeroRow>
           <HeroBlock>
             <h1>Component Library</h1>
-            <p>(This library is for desktop screen sizes only.)</p>
           </HeroBlock>
         </HeroRow>
       </HeroSection>
-
       <Typography></Typography>
       <Buttons></Buttons>
       <Cards></Cards>

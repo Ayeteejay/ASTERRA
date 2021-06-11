@@ -77,30 +77,68 @@ span.gradient{
     -webkit-text-fill-color: transparent;
 }
 h1{
-    font-size:5.9375rem;
-    line-height:1.1;
-    padding:0 0 1.5rem 0;
+    font-size:3.375rem;
     
+    padding:0 0 1.5rem 0;
 }
 h2{
-    font-size:3.375rem;
-}
-h3{
     font-size:1.875rem;
 }
-h4{
+h3{
     font-size:1.375rem;
 }
-h5{
+h4{
     font-size:1.25rem;
 }
-h6{
+h5{
     font-size:1rem;
+}
+h6{
+    font-size:0.95rem;
 }
 p{
     line-height:1.7;
     font-size:0.95rem;
     font-weight:200;
+}
+.quotation{
+    font-size:1.875rem;
+    font-weight:200;
+    line-height:1.25;
+    &::before{
+        content: '"';
+        position: absolute;
+        margin-left: -.4em;
+    }
+}
+@media (min-width:${props=>props.theme.breakPoints.lg}){
+    h1{
+        font-size:5.9375rem;
+        
+        padding:0 0 1.5rem 0;
+    }
+    h2{
+        font-size:3.375rem;
+    }
+    h3{
+        font-size:1.875rem;
+    }
+    h4{
+        font-size:1.375rem;
+    }h5{
+        font-size:1.25rem;
+    }
+    h6{
+        font-size:1rem;
+    }
+    .quotation{
+        font-size:3.75rem;
+        &::before{
+            content: '"';
+            position: absolute;
+            margin-left: -.4em;
+        }
+    }
 }
 ul{
     list-style:none;
@@ -113,20 +151,10 @@ li{
         padding:0 0.3rem 0 0;
     }
 }
-.quotation{
-    font-size:3.75rem;
-    font-weight:200;
-    line-height:1.25;
-    &::before{
-        content: '"';
-        position: absolute;
-        margin-left: -.4em;
-    }
-}
+
 span.emphasis{
     color:${props=>props.theme.primaryColors.oceanBlue};
 }
-
 .standard-link{
     color:${props=>props.theme.primaryColors.clearWhite};
     letter-spacing:1px;
@@ -200,14 +228,6 @@ span.emphasis{
     #arrow-line-normal,#chevron-normal{
         transition:${props=>props.theme.animationSpeeds.normal};
     }
-    // &:hover{
-    //     p{
-    //         color:#3355FF;
-    //     }
-    //     #arrow-line-normal,#chevron-normal{
-    //         stroke:#3355FF;
-    //     }
-    // }
 }
 
 .primary-btn-orange{
@@ -362,7 +382,7 @@ const Layout = ({children}) => {
             <Container>
             {/* <Header></Header> */}
                 {children}
-                {/* <Footer></Footer> */}
+                <Footer></Footer>
             </Container>
             </Fade>
         </ThemeProvider>

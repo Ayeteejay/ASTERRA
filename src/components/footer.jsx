@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import BlueLogo from '../images/asterra-blue-logo.svg';
+import VSSL from '../images/vssl.svg';
 import {Link} from 'gatsby';
 
 const Container = styled.div`
-border-top:1px solid ${props=>props.theme.primaryColors.clearWhite};
-padding:2rem;
-color:${props=>props.theme.primaryColors.clearWhite};
+border-top:1px solid ${props=>props.theme.secondaryColors.rock};
+padding:1rem 2rem;
+color:${props=>props.theme.secondaryColors.rock};
 p, a{
     font-size:0.8125rem;
     text-decoration:none;
@@ -90,6 +90,9 @@ align-items:center;
         padding:1rem;
     }
 }
+img{
+    width:50px;
+}
 p{
     0.8125rem;
 }
@@ -105,9 +108,14 @@ p{
 
 
 const Footer = () => {
+    const getYear = () =>{
+        const date = new Date();
+        const year = date.getFullYear();
+        return year;
+    }
     return (
         <Container>
-            <LinkRow>
+            {/* <LinkRow>
              <AddressColumn>
                  <ul>
                      <li>Utilis Corporate</li>
@@ -217,13 +225,11 @@ const Footer = () => {
                                 </li>
                                 </ul> 
              </LinkColumn>
-            </LinkRow>
+            </LinkRow> */}
             <LegalRow>
-                <img src={BlueLogo} alt="ASTERRA logo"/>
+                <img src={VSSL} alt="VSSL Agency"/>
                 <div className="legal-column">
-                    <p>2021 Utilis Corp. All rights reserved.</p>
-                    <Link to="/privacy-policy" className="standard-link">Privacy Policy</Link>
-                    <Link to="/terms-of-use"  className="standard-link">Terms of Use</Link>
+                    <p>&copy; {getYear()} VSSL Agency. All rights reserved.</p>               
                 </div>
             </LegalRow>
         </Container>

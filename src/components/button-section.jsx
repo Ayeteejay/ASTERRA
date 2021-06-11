@@ -21,8 +21,15 @@ const Row =  styled.div`
         margin:1rem 0;
         padding:1rem;
         display:flex;
+        flex-wrap:wrap;
         a{
-            margin:0 1rem 0 0;
+      
+            margin:0.5rem 1rem 0.5rem 0;
+        }
+        @media(min-width:${props=>props.theme.breakPoints.lg}){
+            a{
+                margin:0 1rem 0 0;
+            }
         }
     }
 }
