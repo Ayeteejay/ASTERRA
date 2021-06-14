@@ -61,17 +61,18 @@ ul{
         }
     }
     .drawer-content{
-    opacity:0;
-    height:0;
-    display:flex;
-    justify-content:center;
-    transition:${props=>props.theme.animationSpeeds.normal};
+        opacity:0;
+        max-height:0;
+        display:flex;
+        justify-content:center;
+        transition:${props=>props.theme.animationSpeeds.normal};
+        visibility:hidden;
     }
     .open{
-        height:250px;
+        max-height:800px;
         opacity:1;
         padding:1.5rem 0;
-      
+        visibility:visible;
     }
     .chevron{
         width:6px;
@@ -84,7 +85,34 @@ ul{
         transform:rotate(90deg);
     }
     .product-drawer{
-        
+        background:blue;
+        width:100%;
+        padding:1.5rem;
+        border:1px solid ${props=>props.theme.secondaryColors.stone};
+        background:${props=>props.theme.primaryColors.spaceBlack};
+        display:flex;
+        .product-title{
+            p{
+                padding:0;
+            }
+        }
+    }
+    .standard-drawer{
+        width:100%;
+        ul{
+            list-style:none;
+        }
+        li{
+            border:none;
+            padding:0;
+            margin:0.2rem 0;
+            &:last-child{
+                display:block;     
+            }
+        }
+        a{
+             text-transform:none;
+        }
     }
 }
 .active-menu{
@@ -179,6 +207,8 @@ const Header = () =>{
     const bottom = document.querySelector(".bottom-line");      
     const spiral = Array.from(document.querySelectorAll(".angle-line"));
     const menu = document.querySelector(".mobile-menu");
+
+    // Working below
     const [viewSize, setViewSize] = useState(
         window.innerWidth
     );
@@ -188,19 +218,19 @@ const Header = () =>{
       window.addEventListener("resize", setSize);
       return () => window.removeEventListener("resize",setSize);
     },[setViewSize]);
-    let menuActive = false;
-
+  
     const [isDesktop,setDesktop] = useState(false);
     useEffect(()=>{
         if(viewSize > 991){
-            setDesktop(true);
-            menu.classList.remove("active-menu");
+            setDesktop(true);            
         }else{
-            setDesktop(false)
+            setDesktop(false);
+            
         };
-    })
-
-
+    });
+    // Working above
+    
+    let menuActive = false;
     const openMenu = () => {
         if(menuActive === false){            
             top.classList.add("hide-top");
@@ -262,25 +292,111 @@ const Header = () =>{
           </MobileToggle>
                 <div className="mobile-menu">
                     <ul>
-                    <li onClick={()=>openDrawer(1)}><div className="drawer">Products<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
+                    <li><div className="drawer" onClick={()=>openDrawer(1)}>Products<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
+                        <div className="drawer-content">
+                            <div className="product-drawer">
+                                <div className="product-title">
+                                <h4>MasterPlan</h4>
+                                <p>Pipe Deficiency Assessment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><div onClick={()=>openDrawer(2)} className="drawer">Solutions<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
                     <div className="drawer-content">
-                        <div className="product-drawer">
-                        <div>
-                            <h4>MasterPlan</h4>
-                            <p>Pipe Deficiency Assessment</p>
-                        </div>
-                        <div>
-                            <h4>MasterPlan</h4>
-                            <p>Leak Detection and Analysis</p>
-                        </div>
+                        <div className="standard-drawer">
+                      
+                            <ul>
+                            <li>
+                            <Link to="/solutions/water" className="standard-link">Water</Link>
+                        </li>
+                        <li>
+                            <Link to="/solutions/wastewater" className="standard-link">Wastewater</Link>
+                        </li>
+                        <li>
+                            <Link to="/solutions/reclaimed" className="standard-link">Reclaimed</Link>
+                        </li>
+                        <li>
+                            <Link to="/solutions/road-highway" className="standard-link">Road &#38; Highway</Link>
+                        </li>
+                        <li>
+                            <Link to="/solutions/rail" className="standard-link">Rail</Link>
+                        </li>
+                        <li>
+                            <Link to="/solutions/dam-levee" className="standard-link">Dam &#38; Levee</Link>
+                        </li>
+                        <li>
+                            <Link to="/solutions/resistivity" className="standard-link">Resistivity</Link>
+                        </li>
+                            </ul>
+                   
                         </div>
                     </div>
                     </li>
-                    <li onClick={()=>openDrawer(2)}><div className="drawer">Solutions<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
-                    <div className="drawer-content">Some stuff here</div></li>
-                    <li>Partners<img src={Arrow} className="arrow" alt="Dropdown indicator"/></li>
-                    <li>Resources<img src={Arrow} className="arrow" alt="Dropdown indicator"/></li>
-                    <li>About<img src={Arrow} className="arrow" alt="Dropdown indicator"/></li>
+                    <li><div onClick={()=>openDrawer(3)} className="drawer">Partners<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
+                    <div className="drawer-content">
+                        <div className="standard-drawer">
+                      
+                            <ul>
+                            <li>
+                            <Link to="/partners/resellers" className="standard-link">Resellers</Link>
+                        </li>
+                        <li>
+                            <Link to="/partners/partner-program" className="standard-link">Partner Program</Link>
+                        </li>
+                        <li>
+                            <Link to="/partners/leak-detection-teams" className="standard-link">Leak Detection Teams</Link>
+                        </li>
+                            </ul>
+                   
+                        </div>
+                    </div>
+                    </li>
+                    <li><div onClick={()=>openDrawer(4)} className="drawer">Resources<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
+                    <div className="drawer-content">
+                        <div className="standard-drawer">
+                      
+                            <ul>
+                            <li>
+                                <Link to="/resources/press" className="standard-link">Press</Link>
+                            </li>
+                            <li>
+                                <Link to="/resources/blog" className="standard-link">Blog</Link>
+                            </li>
+                            <li>
+                                <Link to="/resources/events" className="standard-link">Events</Link>
+                            </li>
+                            <li>
+                                <Link to="/resources/case-studies" className="standard-link">Case Studies</Link>
+                            </li>
+                            </ul>
+                   
+                        </div>
+                    </div>
+                    </li>
+                    <li><div onClick={()=>openDrawer(5)} className="drawer">About<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
+                    <div className="drawer-content">
+                        <div className="standard-drawer">                      
+                            <ul>
+                            <li>
+                                    <Link to="/about/contact-us" className="standard-link">Contact Us</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/careers" className="standard-link">Careers</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/awards" className="standard-link">Awards</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/leadership" className="standard-link">Leadership</Link>
+                                </li>
+                                <li>
+                                    <Link to="/about/impact" className="standard-link">Impact</Link>
+                                </li>
+                            </ul>                   
+                        </div>
+                    </div>
+                    </li>
                     <li><Link to="/demo" className="cta-btn-ghost">Schedule a demo</Link></li>
                     </ul>
                 </div>
