@@ -53,7 +53,7 @@ const Hero = styled.div`
 
 const Product = styled.div`
   .product-wrapper {
-    min-height: 300vh;
+    min-height: 500vh;
     transition: 1s ease-in-out;
     display: flex;
     justify-content: center;
@@ -68,14 +68,14 @@ const Product = styled.div`
     padding: 25% 0;
     grid-template-columns: 1fr 2fr;
     grid-gap: 5rem;
+    transition: 1s;
     top: 0;
     .content-col {
     }
     .gallery-col {
-      transition: 500ms;
-      img {
-        transition: 500ms;
-      }
+    }
+    .show {
+      visibility: visible;
     }
   }
 `;
@@ -88,20 +88,20 @@ const Products = () => {
   useScrollPosition(({ prevPos, currPos }) => {
     const yPos = Math.abs(currPos.y);
     const productRow = document.querySelector(".product-wrapper");
-    if (yPos > 0 && yPos < 1120) {
+    if (yPos > 0 && yPos < 1700) {
       productRow.style.backgroundColor = "#002bff";
       setRecover(false);
       setEarthworks(false);
-    } else if (yPos > 1120 && yPos < 2240) {
+    } else if (yPos > 1700 && yPos < 3400) {
       setMasterPlan(false);
       setRecover(true);
       productRow.style.backgroundColor = "#ff4d1d";
-    } else if (yPos > 2240) {
+    } else if (yPos > 3400) {
       productRow.style.backgroundColor = "#13cca8";
       setRecover(false);
       setEarthworks(true);
     }
-    // console.log(Math.abs(currPos.y));
+    console.log(Math.abs(currPos.y));
   });
   return (
     <Layout>
