@@ -372,6 +372,46 @@ span.emphasize{
     padding: 0 0 1.5rem 0;
     margin: 0 0 2rem 0;
   }
+.section-indicator{
+    position:fixed;
+    bottom:11em;
+    left:-4em;
+    transform:rotate(-90deg);
+    text-transform:uppercase;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    p{
+        font-size:0.8rem;
+    }
+    .line{
+        height:1px;
+        width:75px;
+        display:block;
+        background:white;
+        margin-right:0.5em;        
+        &:before{
+            content:"";
+            height:7px;
+            width:7px;
+            
+            border-radius:50%;
+            background:white;
+            display:block;
+            position:absolute;
+            top:35%;
+        }
+    }
+    .circle{
+        height:8px;
+        width:8px;
+        border-radius:50%;
+        background:white;
+    }
+}
+.img-fluid{
+    max-width:100%;
+}
 `;
 
 const Layout = ({children}) => {
