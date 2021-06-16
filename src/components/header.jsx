@@ -204,7 +204,8 @@ transform:translate(0,-10px);
 
 const Header = () =>{
 
-
+    // All events must be wrapped in functions
+    
     // Working below
     // const [viewSize, setViewSize] = useState(
     //     window.innerWidth
