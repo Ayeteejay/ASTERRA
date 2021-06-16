@@ -203,10 +203,7 @@ transform:translate(0,-10px);
 
 
 const Header = () =>{
-    const top = document.querySelector(".top-line");
-    const bottom = document.querySelector(".bottom-line");      
-    const spiral = Array.from(document.querySelectorAll(".angle-line"));
-    const menu = document.querySelector(".mobile-menu");
+
 
     // Working below
     const [viewSize, setViewSize] = useState(
@@ -232,6 +229,10 @@ const Header = () =>{
     
     let menuActive = false;
     const openMenu = () => {
+        const top = document.querySelector(".top-line");
+        const bottom = document.querySelector(".bottom-line");      
+        const spiral = Array.from(document.querySelectorAll(".angle-line"));
+        const menu = document.querySelector(".mobile-menu");
         if(menuActive === false){            
             top.classList.add("hide-top");
             spiral.forEach((element,index) => {
