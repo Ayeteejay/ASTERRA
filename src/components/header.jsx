@@ -206,25 +206,25 @@ const Header = () =>{
 
 
     // Working below
-    const [viewSize, setViewSize] = useState(
-        window.innerWidth
-    );
+    // const [viewSize, setViewSize] = useState(
+    //     window.innerWidth
+    // );
 
-    useEffect(()=>{            
-      const setSize = () =>{ setViewSize(window.innerWidth)};
-      window.addEventListener("resize", setSize);
-      return () => window.removeEventListener("resize",setSize);
-    },[setViewSize]);
+    // useEffect(()=>{            
+    //   const setSize = () =>{ setViewSize(window.innerWidth)};
+    //   window.addEventListener("resize", setSize);
+    //   return () => window.removeEventListener("resize",setSize);
+    // },[setViewSize]);
   
-    const [isDesktop,setDesktop] = useState(false);
-    useEffect(()=>{
-        if(viewSize > 991){
-            setDesktop(true);            
-        }else{
-            setDesktop(false);
+    // const [isDesktop,setDesktop] = useState(false);
+    // useEffect(()=>{
+    //     if(viewSize > 991){
+    //         setDesktop(true);            
+    //     }else{
+    //         setDesktop(false);
             
-        };
-    });
+    //     };
+    // });
     // Working above
     
     let menuActive = false;
