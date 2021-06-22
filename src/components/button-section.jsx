@@ -343,9 +343,9 @@ console.log(input)
                         </svg></button>
                         <div className="dropdown-content-industries">
                                 <ul>                                
-                                <li onClick={()=>filterSelected("Lorem", "industries")}>Lorem</li>
-                                    <li onClick={()=>filterSelected("Ipsum", "industries")}>Ipsum</li>
-                                <li onClick={()=>filterSelected("Dolor", "industries")}>Dolor</li>
+                                <li onClick={()=>filterSelected("Potable Water", "industries")}>Potable Water</li>
+                                    <li onClick={()=>filterSelected("Wastewater", "industries")}>Wastewater</li>
+                                
                                 
                                 </ul>
                             </div>
