@@ -65,7 +65,7 @@ const Index = () => {
           </HeroBlock>
         </HeroRow>
       </HeroSection>
-      <Typography></Typography>
+      {/* <Typography></Typography> */}
       <Buttons></Buttons>
       <Cards></Cards>
     </Layout>
