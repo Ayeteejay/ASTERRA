@@ -77,6 +77,7 @@ h1{
 }
 h2{
     font-size:1.875rem;
+    padding:0 0 1rem 0;
 }
 h3{
     font-size:1.375rem;

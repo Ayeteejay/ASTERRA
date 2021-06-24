@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Card = styled.div`
 
 .profile-row{
-
 }
 
 img {
@@ -22,7 +21,10 @@ img {
      font-size:1.2rem;
      font-weight:bold;
      color:${props=>props.theme.secondaryColors.orange};
- }
+    }
+    p{
+        padding:0;
+    }
 }
 ` 
 

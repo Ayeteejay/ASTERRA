@@ -98,11 +98,11 @@ align-items:center;
     > * {
         padding:1rem;
     }
+    p{
+        0.8125rem;
+    }
 }
-p{
-    0.8125rem;
-    
-}
+
 @media(min-width:${props=>props.theme.breakPoints.lg}){
     flex-flow:row;
     padding:1rem 0 0 0;

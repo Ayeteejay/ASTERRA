@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
+
+import MobileProductCards from './mobile-product-cards';
+
 import BlueLogo from '../images/asterra-blue-logo.svg';
 import Chevron from '../images/chevron.svg';
 import Arrow from '../images/arrow-right.svg';
@@ -64,6 +67,7 @@ ul{
         opacity:0;
         max-height:0;
         display:flex;
+        flex-flow:column;
         justify-content:center;
         transition:${props=>props.theme.animationSpeeds.normal};
         visibility:hidden;
@@ -85,7 +89,6 @@ ul{
         transform:rotate(90deg);
     }
     .product-drawer{
-        background:blue;
         width:100%;
         padding:1.5rem;
         border:1px solid ${props=>props.theme.secondaryColors.stone};
@@ -296,12 +299,13 @@ const Header = () =>{
                     <ul>
                     <li><div className="drawer" onClick={()=>openDrawer(1)}>Products<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
                         <div className="drawer-content">
-                            <div className="product-drawer">
+                            {/* <div className="product-drawer">
                                 <div className="product-title">
                                 <h4>MasterPlan</h4>
                                 <p>Pipe Deficiency Assessment</p>
-                                </div>
-                            </div>
+                                </div>                             
+                            </div> */}
+                            <MobileProductCards></MobileProductCards>
                         </div>
                     </li>
                     <li><div onClick={()=>openDrawer(2)} className="drawer">Solutions<img src={Arrow} className="arrow" alt="Dropdown indicator"/></div>
@@ -380,6 +384,9 @@ const Header = () =>{
                     <div className="drawer-content">
                         <div className="standard-drawer">                      
                             <ul>
+                            <li>
+                                    <Link to="/about" className="standard-link">About Us</Link>
+                                </li>
                             <li>
                                     <Link to="/about/contact-us" className="standard-link">Contact Us</Link>
                                 </li>

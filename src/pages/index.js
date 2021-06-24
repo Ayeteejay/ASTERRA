@@ -221,6 +221,41 @@ const SolutionsRow = styled.div`
   }
 `;
 
+const TestimonialSection = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+`;
+
+const TestimonialRow = styled.div`
+  width: 75%;
+`;
+
+const ResourceSection = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  background-size: 400%;
+  animation: ${gradientAnimation} 15s infinite;
+  background-image: linear-gradient(
+    45deg,
+    ${(props) => props.theme.primaryColors.oceanBlue},
+    ${(props) => props.theme.secondaryColors.orange}
+  );
+`;
+
+const ResourceRow = styled.div`
+  width: 100%;
+  // background: ${(props) => props.theme.primaryColors.spaceBlack};
+  .direction-row {
+    background: ${(props) => props.theme.primaryColors.spaceBlack};
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    min-height: 150px;
+  }
+`;
+
 const Index = () => {
   const [productData, setProductData] = useState(ProductData);
   const [solutionData, setSolutionData] = useState(SolutionsData);
@@ -346,6 +381,16 @@ const Index = () => {
             </div>
           </SolutionsRow>
         </SolutionsSection>
+        <TestimonialSection>
+          <TestimonialRow>
+            <h1>Test</h1>
+          </TestimonialRow>
+        </TestimonialSection>
+        <ResourceSection>
+          <ResourceRow>
+            <div className="direction-row"></div>
+          </ResourceRow>
+        </ResourceSection>
       </Container>
     </Layout>
   );

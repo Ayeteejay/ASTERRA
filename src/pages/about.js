@@ -101,7 +101,7 @@ const HistoryRow = styled.div`
     display: flex;
     flex-flow: column;
     background: ${(props) => props.theme.secondaryColors.granite};
-    padding: 5rem;
+    padding: 3rem;
     .left-column {
     }
     .right-column {
@@ -117,6 +117,7 @@ const HistoryRow = styled.div`
   @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
     .our-history {
       flex-flow: row;
+      padding: 5rem;
       .right-column {
         padding: 0 0 0 5rem;
       }
@@ -136,11 +137,11 @@ const LeadershipIntro = styled.section`
     );
   }
   .leadership-icon {
-    // animation: ${rotation} 25s infinite;
+    animation: ${rotation} 25s infinite;
   }
   .leadership-column {
     background: ${(props) => props.theme.secondaryColors.granite};
-    padding: 5rem 2rem;
+    padding: 5rem 3rem;
     h2 {
       color: ${(props) => props.theme.secondaryColors.orange};
     }
@@ -191,10 +192,10 @@ const AwardsIntroSection = styled.div`
     border-top: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
     border-bottom: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
     border-right: 1px solid ${(props) => props.theme.primaryColors.clearWhite};
-    padding: 0 0 0 25%;
+    padding: 0 0 0 4rem;
     display: flex;
     .awards-description {
-      padding: 5rem 5rem 5rem 0;
+      padding: 3rem 4rem 3rem 0;
       h2 {
         color: ${(props) => props.theme.primaryColors.oceanBlue};
       }
@@ -204,9 +205,17 @@ const AwardsIntroSection = styled.div`
       background-size: cover;
       width: 100%;
       display: none;
-      @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
-        display: block;
-      }
+    }
+  }
+  @media (min-width: ${(props) => props.theme.breakPoints.lg}) {
+    .awards-column {
+      padding: 0 0 0 25%;
+    }
+    .awards-column .awards-description {
+      padding: 5rem 5rem 5rem 0;
+    }
+    .awards-column .awards-image {
+      display: block;
     }
   }
 `;
