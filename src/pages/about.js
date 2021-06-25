@@ -100,7 +100,7 @@ const HistoryRow = styled.div`
   .our-history {
     display: flex;
     flex-flow: column;
-    background: ${(props) => props.theme.secondaryColors.granite};
+    background: ${(props) => props.theme.secondaryColors.slate};
     padding: 3rem;
     .left-column {
     }
@@ -140,7 +140,7 @@ const LeadershipIntro = styled.section`
     animation: ${rotation} 25s infinite;
   }
   .leadership-column {
-    background: ${(props) => props.theme.secondaryColors.granite};
+    background: ${(props) => props.theme.secondaryColors.slate};
     padding: 5rem 3rem;
     h2 {
       color: ${(props) => props.theme.secondaryColors.orange};

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Link } from "gatsby";
+import Logomark from "../images/asterra-mark.svg";
 import Layout from "../components/layout";
 import ProductData from "../data/product.js";
 import SolutionsData from "../data/solutions.js";
 import SolutionsCard from "../components/solution-card.jsx";
+import Testimonials from "../components/testimonials.jsx";
+import Resources from "../components/resource-cards.jsx";
 import ProductCard from "../components/product-card";
 import VideoHero from "../images/homepage/hero-video.jpg";
 import PlanetImage from "../images/homepage/planet.svg";
@@ -35,7 +38,7 @@ const float = keyframes`
 `;
 
 const Container = styled.div`
-  padding: 5rem 0 0 0;
+  padding: ${(props) => props.theme.sectionSpacing.topOnly};
   p {
     padding: 0.75rem 0;
   }
@@ -220,25 +223,13 @@ const SolutionsRow = styled.div`
     }
   }
 `;
-
-const TestimonialSection = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
-`;
-
-const TestimonialRow = styled.div`
-  width: 75%;
-`;
-
 const ResourceSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  background-size: 400%;
-  animation: ${gradientAnimation} 15s infinite;
+  // background-size: 400%;
+  // animation: ${gradientAnimation} 15s infinite;
   background-image: linear-gradient(
     45deg,
     ${(props) => props.theme.primaryColors.oceanBlue},
@@ -248,11 +239,28 @@ const ResourceSection = styled.section`
 
 const ResourceRow = styled.div`
   width: 100%;
-  // background: ${(props) => props.theme.primaryColors.spaceBlack};
+  position: relative;
   .direction-row {
     background: ${(props) => props.theme.primaryColors.spaceBlack};
     clip-path: polygon(50% 100%, 0 0, 100% 0);
     min-height: 150px;
+  }
+  .logo-row {
+    display: flex;
+    justify-content: center;
+    .logo-planet {
+      transform: translate(0, -50%);
+      border-radius: 50%;
+      padding: 1rem;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      background-image: linear-gradient(
+        45deg,
+        ${(props) => props.theme.primaryColors.oceanBlue},
+        ${(props) => props.theme.secondaryColors.orange}
+      );
+    }
   }
 `;
 
@@ -381,14 +389,16 @@ const Index = () => {
             </div>
           </SolutionsRow>
         </SolutionsSection>
-        <TestimonialSection>
-          <TestimonialRow>
-            <h1>Test</h1>
-          </TestimonialRow>
-        </TestimonialSection>
+        <Testimonials></Testimonials>
         <ResourceSection>
           <ResourceRow>
             <div className="direction-row"></div>
+            <div className="logo-row">
+              <div className="logo-planet">
+                <img src={Logomark} />
+              </div>
+            </div>
+            <Resources></Resources>
           </ResourceRow>
         </ResourceSection>
       </Container>
