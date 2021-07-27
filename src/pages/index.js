@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
 import Highway from "../images/homepage/highway.jpg";
 import Cards from "../components/cards-section";
+import Rows from "../components/rows-section";
 
 import Typography from "../components/typography-section";
 import Buttons from "../components/button-section";
@@ -66,6 +67,7 @@ const Index = () => {
         </HeroRow>
       </HeroSection>
       {/* <Typography></Typography> */}
+      <Rows></Rows>
       <Buttons></Buttons>
       <Cards></Cards>
     </Layout>
